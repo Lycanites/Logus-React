@@ -1,12 +1,11 @@
 import "./App.css";
-import Login from "./components/Login";
+import LandingPage from "./components/landing";
 
 function App() {
   return (
-    <>
-      <header />
-      <Login />
-    </>
+    <div>
+      <LandingPage />
+    </div>
   );
 }
 
