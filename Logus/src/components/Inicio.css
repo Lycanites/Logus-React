@@ -1,0 +1,57 @@
+body {
+  background-color: #fff4d6;
+}
+
+.img {
+  display: grid; /* Activa Grid */
+  place-items: center; /* Centra horizontal y verticalmente */
+}
+.Logo {
+  width: 300px;
+  height: 200px;
+  text-align: center; /* Centra el contenido dentro del div */
+  margin: 20px; /* Añade margen alrededor del div */
+}
+
+.Logo img {
+  max-width: 100%; /* Asegura que la imagen no exceda el ancho del div */
+  height: auto; /* Mantiene la relación de aspecto */
+}
+
+.Jugar {
+  background-color: #c9fa53;
+  min-width: 400px;
+  max-width: 400px;
+  height: 125px;
+  padding: 20px 20px;
+  border-radius: 35px;
+  margin: 30px;
+}
+.Opciones {
+  background-color: #d9d9fe;
+  min-width: 400px;
+  max-width: 400px;
+  height: 125px;
+  padding: 20px 20px;
+  border-radius: 35px;
+  margin: 30px;
+}
+.Tienda {
+  background-color: #f7ba7b;
+  min-width: 400px;
+  max-width: 400px;
+  height: 125px;
+  padding: 20px 20px;
+  border-radius: 35px;
+  margin: 30px;
+}
+
+button:hover {
+  background-color: aliceblue;
+}
+
+.container {
+  margin-top: 90px;
+  display: grid; /* Activa Grid */
+  place-items: center; /* Centra horizontal y verticalmente */
+}

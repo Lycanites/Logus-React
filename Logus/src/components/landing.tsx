@@ -1,5 +1,6 @@
 import React from "react";
 import "./landing.css";
+import { Link } from "react-router-dom";
 
 const LandingPage: React.FC = () => {
   return (
@@ -11,6 +12,9 @@ const LandingPage: React.FC = () => {
             <a href="#somos-proya">Que es Logus</a>
             <a href="#nuestros-programas">Nuestras Areas</a>
             <a href="#caracteristicas">Características</a>
+            <Link to="/Inicio.jsx">
+              <button>Iniciar sesion</button>
+            </Link>
           </nav>
         </div>
       </header>
