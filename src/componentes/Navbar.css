@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background-color: #3c2364;
+  color: #fff;
+}
+
+.navbar-logo {
+  font-size: 3rem;
+  font-family: Cream-Beige;
+  -webkit-text-stroke: #2a1059;
+  -webkit-text-stroke-width: 2px;
+  color: #fff;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: Marykate;
+  padding-right: 15px;
+}
+
+.navbar-links a:hover {
+  color: #ffa500;
+}
+
+@font-face {
+  font-family: Marykate;
+  src: url(MaryKate.ttf);
+}
+
+@font-face {
+  font-family: Cream-Beige;
+  src: url(Cream\ Beige.ttf);
+}
