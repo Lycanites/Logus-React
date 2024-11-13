@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,24 +15,24 @@ const Navbar = () => {
 
       <ul className={`navbar-links ${isOpen ? "active" : ""}`}>
         <li>
-          <a href="#home" className="btn">
+          <Link to="/" className="btn">
             Inicio
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#about" className="btn">
+          <Link to="#about" className="btn">
             Areas
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#about" className="btn">
+          <Link to="#about" className="btn">
             Registrarse
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#about" className="btn">
+          <Link to="#about" className="btn">
             Iniciar Sesion
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
