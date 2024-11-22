@@ -25,12 +25,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="#about" className="btn">
+          <Link to="/Register" className="btn">
             Registrarse
           </Link>
         </li>
         <li>
-          <Link to="#about" className="btn">
+          <Link to="/Login" className="btn">
             Iniciar Sesion
           </Link>
         </li>

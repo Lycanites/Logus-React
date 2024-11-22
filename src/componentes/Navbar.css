@@ -35,10 +35,10 @@
 
 @font-face {
   font-family: Marykate;
-  src: url(MaryKate.ttf);
+  src: url("../assets/fonts/MaryKate.ttf");
 }
 
 @font-face {
   font-family: Cream-Beige;
-  src: url(Cream\ Beige.ttf);
+  src: url("../assets/fonts/CreamBeige.ttf");
 }
