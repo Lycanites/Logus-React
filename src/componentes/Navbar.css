@@ -1,36 +1,58 @@
 .navbar {
+  position: fixed; /* Fijar en la parte superior */
+  top: 0; /* Posición en la parte superior */
+  left: 0;
+  right: 0;
+  background-color: #181818; /* Color de fondo */
+  color: white; /* Color del texto */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 4rem;
-  background-color: #3c2364;
-  color: #fff;
+  padding: 1rem; /* Espaciado interno */
+  z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+  font-family: Marykate;
+  font-size: 2rem;
+  transition: background-color 0.3s ease; /* Transición de color de fondo */
 }
 
 .navbar-logo {
-  font-size: 3rem;
-  font-family: Cream-Beige;
-  -webkit-text-stroke: #2a1059;
-  -webkit-text-stroke-width: 2px;
-  color: #fff;
+  font-size: 3rem; /* Tamaño del logo */
+  font-family: CreamBeige;
 }
 
 .navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
+  list-style: none; /* Sin viñetas */
+  display: flex; /* Mostrar los enlaces en línea */
+  gap: 1rem; /* Espaciado entre los enlaces */
+  transition: max-height 0.3s ease; /* Transición suave */
+
+  overflow: hidden; /* Ocultar contenido desbordante */
 }
 
-.navbar-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 2rem;
-  font-family: Marykate;
-  padding-right: 15px;
+.navbar-links.active {
+  max-height: 300px; /* Ajustar según el contenido */
+  display: flex; /* Mostrar en flex cuando está activo */
 }
 
-.navbar-links a:hover {
-  color: #ffa500;
+.navbar-toggle {
+  display: none; /* Ocultar por defecto */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none; /* Ocultar enlaces en móviles */
+    flex-direction: column; /* Mostrar en columna */
+    position: absolute; /* Posicionar absolutamente */
+    top: 100px; /* Ajustar según la altura de la navbar */
+    left: 0;
+    right: 0;
+    background-color: #181818; /* Color de fondo para el menú desplegable */
+  }
+
+  .navbar-toggle {
+    display: block; /* Mostrar el botón de menú en móviles */
+  }
 }
 
 @font-face {

@@ -12,11 +12,21 @@ import Lectura from "./Areas/Lectura.tsx";
 import Logica from "./Areas/Logica.tsx";
 import Memoria from "./Areas/Memoria.tsx";
 import Analisis from "./Areas/Analisis.tsx";
+import MainMenu from "./componentes/MainMenu.tsx";
+import Menu from "./componentes/Menu.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/MainMenu",
+    element: <MainMenu />,
+  },
+  {
+    path: "/Menu",
+    element: <Menu />,
   },
   {
     path: "/Login",
@@ -42,6 +52,7 @@ const router = createBrowserRouter([
     path: "/Register",
     element: <Register />,
   },
+
   {
     path: "/cow",
     element: <Vaca />,

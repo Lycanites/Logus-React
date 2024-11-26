@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "CreamBeige"; /* Cambia esto por el nombre que desees usar */
+  src: url("../assets/fonts/CreamBeige.ttf") format("truetype");
+  font-weight: bold; /* O puedes especificar 'bold' si es una fuente en negrita */
+  font-style: normal; /* Puedes cambiar a 'italic' si es una fuente en cursiva */
+}
+
+@font-face {
+  font-family: "Marykate"; /* Cambia esto por el nombre que desees usar */
+  src: url("../assets/fonts/MaryKate.ttf") format("truetype");
+  font-weight: bold; /* O puedes especificar 'bold' si es una fuente en negrita */
+  font-style: normal; /* Puedes cambiar a 'italic' si es una fuente en cursiva */
+}
+.button-container {
+  text-align: center; /* Esto asegura que los elementos dentro se centren */
+}
+
+button {
+  margin: 0 auto;
+  display: block; /* Esto convierte el botón en un bloque, permitiendo que 'margin: auto' funcione */
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+}
