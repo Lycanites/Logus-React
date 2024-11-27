@@ -14,6 +14,8 @@ import Memoria from "./Areas/Memoria.tsx";
 import Analisis from "./Areas/Analisis.tsx";
 import MainMenu from "./componentes/MainMenu.tsx";
 import Menu from "./componentes/Menu.tsx";
+import Configuracion from "./componentes/Configuracion.tsx";
+import Perfil from "./componentes/Perfil.tsx";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +54,15 @@ const router = createBrowserRouter([
     path: "/Register",
     element: <Register />,
   },
-
+  
+  {
+    path: "/Configuracion",
+    element: <Configuracion />,
+  },
+  {
+    path: "/Perfil",
+    element: <Perfil />,
+  },
   {
     path: "/cow",
     element: <Vaca />,

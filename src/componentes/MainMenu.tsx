@@ -24,12 +24,16 @@ const Menu = () => {
               Jugar
             </button>
           </Link>
-          <button className="px-4 py-2 bg-verde text-white rounded-3xl hover:bg-verdehover border-verdeborder border-4 transition-colors">
+          <Link to='/Configuracion'>
+          <button>
             Configuracion
           </button>
+          </Link>
+          <Link to='/Perfil'>
           <button className="px-4 py-2 bg-azul text-white rounded-3xl hover:bg-azulhover border-azulborder border-4 transition-colors">
             Perfil
           </button>
+          </Link>
         </div>
       </div>
     </div>
