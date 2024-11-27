@@ -25,7 +25,8 @@ module.exports = {
         amarilloborder: "#bdae48",
       },
       backgroundImage: {
-        Logicabtn: "url(../assets/img/MiniLogica.jpg)",
+        'Logicabtn': "url(../assets/img/MiniLogica.jpg)",
+        'Lectura': "url ('/src/assets/img/MiniLectura.jpg')",
       },
     },
   },
