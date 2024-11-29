@@ -11,6 +11,7 @@ module.exports = {
         verde: "#8aa43a",
         verdeborder: "#7b8d43",
         verdehover: "#a5b86a",
+        verdetext: "#579e00",
         morado: "#2a1059",
         rosa: "#c25c8d",
         rosaborder: "#af4f7d",
@@ -25,8 +26,8 @@ module.exports = {
         amarilloborder: "#bdae48",
       },
       backgroundImage: {
-        'Logicabtn': "url(../assets/img/MiniLogica.jpg)",
-        'Lectura': "url ('/src/assets/img/MiniLectura.jpg')",
+        Logicabtn: "url(../assets/img/MiniLogica.jpg)",
+        Lectura: "url ('/src/assets/img/MiniLectura.jpg')",
       },
     },
   },
