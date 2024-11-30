@@ -16,6 +16,7 @@ import MainMenu from "./componentes/MainMenu.tsx";
 import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
+import Lvl1 from "./Lectura-Lvls/Lvl1.tsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/Lectura",
     element: <Lectura />,
+  },
+  {
+    path: '/Lvl1',
+    element: <Lvl1 />,
   },
   {
     path: "/Logica",
