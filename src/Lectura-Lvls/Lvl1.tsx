@@ -8,17 +8,16 @@ const Lvl1 = () => {
       <p>Tiempo</p>
     </div>
 <div id="instruccion" className="bg-white max-h-[50vh] max-w-screen-md content-center">
- <h1 className="text-center">Pregunta</h1>
+ <h1 className="text-center">¿De qué color es Millie?</h1>
 </div>
 <div id="texto">
-  
+  <p>Noa y Hugo tienen una nueva mascota, se llama Millie, es un dálmata, es de color blanco con manchas negras, al perrito le gusta jugar con un hueso.</p>
 </div>
 <div id="botones" className="content-center px-20">
-  <button>respuesta uno</button>
-  <button>respuesta dos</button>
-  <br></br>
-  <button>respuesta tres</button>
-  <button>respuesta cuatro</button>
+  <button>Blanco</button>
+  <button>Negro</button>
+  <button>Blanco con manchas negras</button>
+  <button>Café</button>
 </div>
 </div>
   )
