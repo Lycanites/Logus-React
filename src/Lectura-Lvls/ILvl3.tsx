@@ -1,7 +1,8 @@
 import React from "react";
-import "./Lvl.css";
+import "./ILvl.css";
+import { Link } from "react-router-dom";
 
-const Lvl3 = () => {
+const ILvl3 = () => {
   return (
   <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Nivel 3
     <div id="tiempo">
@@ -14,15 +15,23 @@ const Lvl3 = () => {
   <p>Sorprendió a todos la actitud de aquel hombre OSADO.</p>
 </div>
 <div id="botones" className="content-center px-20">
+  <Link to= '/ILvl4'>
   <button>A Cobarde</button>
+  </Link>
+  <Link to= '/ILvl4'>
   <button>B Valiente</button>
+  </Link>
   <br />
+  <Link to= '/ILvl4'>
   <button>C Refinado</button>
+  </Link>
+  <Link to= '/ILvl4'>
   <button>D Reservado</button>
+  </Link>
   {/* correcta B */}
 </div>
 </div>
   )
 };
 
-export default Lvl3;
+export default ILvl3;

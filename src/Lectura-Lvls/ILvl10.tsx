@@ -1,5 +1,5 @@
 import React from "react";
-import "./Lvl.css";
+import "./ILvl.css";
 
 const Lvl10 = () => {
   return (

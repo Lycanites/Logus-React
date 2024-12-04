@@ -18,6 +18,9 @@ import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
 import ILvl1 from "./Lectura-Lvls/ILvl1.tsx";
 import ILvl2 from "./Lectura-Lvls/ILvl2.tsx";
+import ILvl3 from "./Lectura-Lvls/ILvl3.tsx";
+import ILvl4 from "./Lectura-Lvls/ILvl4.tsx";
+
 
 
 const router = createBrowserRouter([
@@ -48,6 +51,14 @@ const router = createBrowserRouter([
   {
     path: '/ILvl2',
     element: <ILvl2 />,
+  },
+  {
+    path: '/ILvl3',
+    element: <ILvl3/>,
+  },
+  {
+    path: '/ILvl4',
+    element: <ILvl4/>
   },
   {
     path: "/Logica",

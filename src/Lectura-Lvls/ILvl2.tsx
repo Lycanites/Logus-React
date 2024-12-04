@@ -1,5 +1,6 @@
 import React from "react";
-import "./Lvl.css";
+import "./ILvl.css";
+import { Link } from "react-router-dom";
 
 const ILvl2 = () => {
   return (
@@ -14,11 +15,19 @@ const ILvl2 = () => {
   <p>El camino hacia el éxito a veces resulta INASEQUIBLE.</p>
 </div>
 <div id="botones" className="content-center px-20">
+  <Link to= {'/ILvl3'}>
   <button>A Fácil</button>
-  <button>B Inasequible</button>
+  </Link>
+  <Link to= '/ILvl3'>
+  <button>B Dificil</button>
+  </Link>
   <br />
+  <Link to= '/ILvl3'>
   <button>C Sencillo</button>
+  </Link>
+  <Link to= '/ILvl3'>
   <button>D Accesible</button>
+  </Link>
   {/* correcta B */}
 </div>
 </div>

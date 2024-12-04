@@ -1,5 +1,5 @@
 import React from "react";
-import "./1Lvl.css";
+import "./ILvl.css";
 import { Link } from "react-router-dom";
 
 const ILvl1 = () => {
@@ -16,7 +16,7 @@ const ILvl1 = () => {
 </div>
 <div id="botones" className="content-center px-20">
   <Link to={'/ILvl2'}>
-  <button>A Blanco</button>
+  <button className="bg-azul">A Blanco</button>
   </Link>
   <Link to="/ILvl2">
   <button>B Negro</button>
