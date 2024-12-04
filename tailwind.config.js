@@ -30,6 +30,8 @@ module.exports = {
         amarillohover: "#dbcc6b",
         amarilloborder: "#bdae48",
       },
+
+      
       backgroundImage: {
         Logicabtn: "url(../assets/img/MiniLogica.jpg)",
         Lectura: "url ('/src/assets/img/MiniLectura.jpg')",
