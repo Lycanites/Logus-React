@@ -1,9 +1,10 @@
 import React from "react";
-import "./Lvl.css";
+import "./1Lvl.css";
+import { Link } from "react-router-dom";
 
-const Lvl1 = () => {
+const ILvl1 = () => {
   return (
-  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Lvl1
+  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Nivel 1
     <div id="tiempo">
       <p>Tiempo</p>
     </div>
@@ -14,13 +15,22 @@ const Lvl1 = () => {
   <p>Noa y Hugo tienen una nueva mascota, se llama Millie, es un dálmata, es de color blanco con manchas negras, al perrito le gusta jugar con un hueso.</p>
 </div>
 <div id="botones" className="content-center px-20">
+  <Link to={'/ILvl2'}>
   <button>A Blanco</button>
+  </Link>
+  <Link to="/ILvl2">
   <button>B Negro</button>
+  </Link>
+  <br />
+  <Link to="/ILvl2">
   <button>C Blanco con manchas negras</button>
+  </Link>
+  <Link to="/ILvl2">
   <button>D Café</button>
+  </Link>
 </div>
 </div>
   )
 };
 
-export default Lvl1;
+export default ILvl1;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Lectura = () => {
   return (
-    <Link to={'/Lvl1'}>
+    <Link to={'/ILvl1'}>
 
     <div className="bg-lime-400 h-[100vh]" >
 

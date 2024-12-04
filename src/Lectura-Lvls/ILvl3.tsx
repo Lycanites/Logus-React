@@ -3,7 +3,7 @@ import "./Lvl.css";
 
 const Lvl3 = () => {
   return (
-  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Lvl1
+  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Nivel 3
     <div id="tiempo">
       <p>Tiempo</p>
     </div>

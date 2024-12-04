@@ -1,9 +1,9 @@
 import React from "react";
 import "./Lvl.css";
 
-const Lvl2 = () => {
+const ILvl2 = () => {
   return (
-  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Lvl1
+  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Nivel 2
     <div id="tiempo">
       <p>Tiempo</p>
     </div>
@@ -25,4 +25,4 @@ const Lvl2 = () => {
   )
 };
 
-export default Lvl2;
+export default ILvl2;
