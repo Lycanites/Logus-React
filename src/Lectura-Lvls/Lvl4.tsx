@@ -11,14 +11,15 @@ const Lvl4 = () => {
  <h1 className="text-center">¿Cómo resultó el tiempo?</h1>
 </div>
 <div id="texto">
-  <p>El tiempo resulto demasiado ESTRECHO para concluir la tarea.</p>
+  <p>El tiempo resulto demasiado RAQUITICO para concluir la tarea.</p>
 </div>
 <div id="botones" className="content-center px-20">
-  <button>respuesta uno</button>
-  <button>respuesta dos</button>
+  <button>A Demasiado corto</button>
+  <button>B Demasiado estrecho</button>
   <br></br>
-  <button>respuesta tres</button>
-  <button>respuesta cuatro</button>
+  <button>C Suficiente</button>
+  <button>D Demasiado Corto</button>
+  {/* correcta B */}
 </div>
 </div>
   )

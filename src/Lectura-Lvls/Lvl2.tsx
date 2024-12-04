@@ -14,11 +14,12 @@ const Lvl2 = () => {
   <p>El camino hacia el éxito a veces resulta INASEQUIBLE.</p>
 </div>
 <div id="botones" className="content-center px-20">
-  <button>Fácil</button>
-  <button>Inasequible</button>
+  <button>A Fácil</button>
+  <button>B Inasequible</button>
   <br />
-  <button>Sencillo</button>
-  <button>Accesible</button>
+  <button>C Sencillo</button>
+  <button>D Accesible</button>
+  {/* correcta B */}
 </div>
 </div>
   )

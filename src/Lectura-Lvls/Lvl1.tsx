@@ -14,10 +14,10 @@ const Lvl1 = () => {
   <p>Noa y Hugo tienen una nueva mascota, se llama Millie, es un dálmata, es de color blanco con manchas negras, al perrito le gusta jugar con un hueso.</p>
 </div>
 <div id="botones" className="content-center px-20">
-  <button>Blanco</button>
-  <button>Negro</button>
-  <button>Blanco con manchas negras</button>
-  <button>Café</button>
+  <button>A Blanco</button>
+  <button>B Negro</button>
+  <button>C Blanco con manchas negras</button>
+  <button>D Café</button>
 </div>
 </div>
   )
