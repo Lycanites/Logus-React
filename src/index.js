@@ -20,8 +20,7 @@ import ILvl1 from "./Lectura-Lvls/ILvl1.tsx";
 import ILvl2 from "./Lectura-Lvls/ILvl2.tsx";
 import ILvl3 from "./Lectura-Lvls/ILvl3.tsx";
 import ILvl4 from "./Lectura-Lvls/ILvl4.tsx";
-
-
+import TimerInitializer from "./componentes/TimerInitializer.tsx";
 
 const router = createBrowserRouter([
   {
@@ -45,20 +44,20 @@ const router = createBrowserRouter([
     element: <Lectura />,
   },
   {
-    path: '/ILvl1',
+    path: "/ILvl1",
     element: <ILvl1 />,
   },
   {
-    path: '/ILvl2',
+    path: "/ILvl2",
     element: <ILvl2 />,
   },
   {
-    path: '/ILvl3',
-    element: <ILvl3/>,
+    path: "/ILvl3",
+    element: <ILvl3 />,
   },
   {
-    path: '/ILvl4',
-    element: <ILvl4/>
+    path: "/ILvl4",
+    element: <ILvl4 />,
   },
   {
     path: "/Logica",
@@ -76,7 +75,7 @@ const router = createBrowserRouter([
     path: "/Register",
     element: <Register />,
   },
-  
+
   {
     path: "/Configuracion",
     element: <Configuracion />,
@@ -84,6 +83,10 @@ const router = createBrowserRouter([
   {
     path: "/Perfil",
     element: <Perfil />,
+  },
+  {
+    path: "/TimerInitializer",
+    element: <TimerInitializer />,
   },
   {
     path: "/cow",
