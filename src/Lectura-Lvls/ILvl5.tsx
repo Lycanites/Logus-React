@@ -1,7 +1,7 @@
 import React from "react";
-import "./Lvl.css";
+import "./ILvl.css";
 
-const Lvl5 = () => {
+const ILvl5 = () => {
   return (
   <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Lvl1
     <div id="tiempo">
@@ -24,4 +24,4 @@ const Lvl5 = () => {
   )
 };
 
-export default Lvl5;
+export default ILvl5;

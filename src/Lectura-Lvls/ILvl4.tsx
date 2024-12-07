@@ -1,9 +1,9 @@
 import React from "react";
-import "./Lvl.css";
+import "./ILvl.css";
 
-const Lvl4 = () => {
+const ILvl4 = () => {
   return (
-  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Lvl1
+  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Nivel 4
     <div id="tiempo">
       <p>Tiempo</p>
     </div>
@@ -14,15 +14,15 @@ const Lvl4 = () => {
   <p>El tiempo resulto demasiado RAQUITICO para concluir la tarea.</p>
 </div>
 <div id="botones" className="content-center px-20">
-  <button>A Demasiado corto</button>
-  <button>B Demasiado estrecho</button>
+  <button>A Adecuado</button>
+  <button>B Estrecho</button>
   <br></br>
   <button>C Suficiente</button>
-  <button>D Demasiado Corto</button>
+  <button>D Largo</button>
   {/* correcta B */}
 </div>
 </div>
   )
 };
 
-export default Lvl4;
+export default ILvl4;
