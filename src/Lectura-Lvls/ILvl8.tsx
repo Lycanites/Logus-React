@@ -1,28 +1,79 @@
 import React from "react";
 import "./ILvl.css";
+import { Link } from "react-router-dom";
+import backgroundImage from "../assets/img/Lectura.jpg"; // Asegúrate de que esta ruta sea correcta
+import Timer from "../componentes/Timer.tsx"; // Asegúrate de que la ruta sea correcta
 
 const ILvl8 = () => {
   return (
-  <div id="Lvlec" className="bg-lime-500 h-[100vh]  content-center text-center" >Lvl1
-    <div id="tiempo">
-      <p>Tiempo</p>
+<div
+      id="Lvlec"
+      className="bg-lime-500 h-[100vh] content-center text-center relative overflow-hidden"
+    >
+      {/* Imagen de fondo con saturación */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          filter: "saturate(50%)",
+        }}
+      />
+
+      <div className="relative z-10">
+        {/* Botón de volver en la esquina superior izquierda */}
+        <Link to="/">
+          <button className="absolute top-4 left-4 bg-blue-500 text-white px-4 py-2 rounded">
+            Volver
+          </button>
+        </Link>
+
+        {/* Texto de nivel en la esquina superior derecha */}
+        <h1 className="absolute top-4 right-4 text-white font-bold text-lg md:text-xl lg:text-2xl">
+          Nivel 8
+        </h1>
+
+        <div id="tiempo" className="mt-16">
+          <Timer duration={30000} redirectTo="/ILvl9" /> {/* 30 segundos */}
+        </div>
+
+        <div
+          id="instruccion"
+          className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg"
+        >
+          <h1 className="text-center font-CreamBeige">
+          ¿Qué llegó a manos del Sr. Aldebarán?
+          </h1>
+        </div>
+        <div id="texto" className="p-4 font-Marykate">
+          <p>El Enigma del Relojero: En un rincón oscuro de la ciudad yacía la modesta relojería del Sr. Aldebarán, un hombre cuya sapiencia mecánica rivalizaba con el mismísimo tiempo. Su taller, repleto de artilugios y misterios, era el enclave perfecto para la resolución de enigmas cronometrados. Una mañana, un reloj llegó a sus manos, tocado por la fatalidad yace estancado en un tic-tac melancólico. Su reparación, desafío supremo para cualquier relojero, se convertiría en el peregrinaje de un maestro en búsqueda de la elusiva armonía temporal.</p>
+        </div>
+        <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
+          <Link to={"/ILvl9"}>
+            <button className="bg-verde text-white px-4 py-2 rounded">
+            A Un reloj
+            </button>
+          </Link>
+          <Link to="/ILvl9 ">
+            <button className="bg-verde text-white px-4 py-2 rounded">
+            B Un mapa
+            </button>
+          </Link>
+          <Link to="/ILvl9">
+            <button className="bg-verde text-white px-4 py-2 rounded">
+            C Un libro
+            </button>
+          </Link>
+          <Link to="/ILvl9">
+            <button className="bg-verde text-white px-4 py-2 rounded">
+            D Una brújula
+            </button>
+          </Link>
+          {/* correcta B */}
+        </div>
+      </div>
     </div>
-<div id="instruccion" className="bg-white max-h-[50vh] max-w-screen-md content-center">
- <h1 className="text-center">¿Qué llegó a manos del Sr. Aldebarán?</h1>
-</div>
-<div id="texto">
-  <p>El Enigma del Relojero: En un rincón oscuro de la ciudad yacía la modesta relojería del Sr. Aldebarán, un hombre cuya sapiencia mecánica rivalizaba con el mismísimo tiempo. Su taller, repleto de artilugios y misterios, era el enclave perfecto para la resolución de enigmas cronometrados. Una mañana, un reloj llegó a sus manos, tocado por la fatalidad yace estancado en un tic-tac melancólico. Su reparación, desafío supremo para cualquier relojero, se convertiría en el peregrinaje de un maestro en búsqueda de la elusiva armonía temporal.</p>
-</div>
-<div id="botones" className="content-center px-20">
-  <button>A Un reloj</button>
-  <button>B Un mapa</button>
-  <br />
-  <button>C Un libro</button>
-  <button>D Una brújula</button>
-  {/* Respuesta correcta A */}
-</div>
-</div>
   )
+
 };
 
 export default ILvl8;
