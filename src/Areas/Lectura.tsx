@@ -1,11 +1,17 @@
 import React from "react";
 import MiniLectura from "../assets/img/Lectura-rbg.png";
+import { Link } from "react-router-dom";
 
 const Lectura = () => {
   return (
+    <Link to={'/Lvl1'}>
+
     <div className="bg-lime-400 h-[100vh]" >
+
+        Da clic en donde sea para empezar
+        
       <div id="titulo">
-        <h1 className=" font-CreamBeige text-xl">Lectura</h1>
+        <h1 className=" font-CreamBeige text-6xl text-center text-color-verdetext">Lectura</h1>
         <h2>Beta</h2>
       </div>
       <div className="flex items-center justify-center h-screen">
@@ -19,7 +25,9 @@ const Lectura = () => {
           }}
         ></div>
       </div>
+
     </div>
+    </Link>
   );
 };
 
