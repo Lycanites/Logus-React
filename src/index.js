@@ -16,7 +16,12 @@ import MainMenu from "./componentes/MainMenu.tsx";
 import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
-import Lvl1 from "./Lectura-Lvls/Lvl1.tsx";
+import ILvl1 from "./Lectura-Lvls/ILvl1.tsx";
+import ILvl2 from "./Lectura-Lvls/ILvl2.tsx";
+import ILvl3 from "./Lectura-Lvls/ILvl3.tsx";
+import ILvl4 from "./Lectura-Lvls/ILvl4.tsx";
+import IILvl1 from "./Logica-levels/IILvl1.tsx";
+import TimerInitializer from "./componentes/TimerInitializer.tsx";
 
 const router = createBrowserRouter([
   {
