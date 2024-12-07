@@ -31,6 +31,13 @@ import IIILvl1 from "./Anal-Lvls/IIILvl1.tsx";
 import IIILvl2 from "./Anal-Lvls/IIILvl2.tsx";
 import IIILvl3 from "./Anal-Lvls/IIILvl3.tsx";
 import IIILvl4 from "./Anal-Lvls/IIILvl4.tsx";
+import IIILvl5 from "./Anal-Lvls/IIILvl5.tsx";
+import IIILvl6 from "./Anal-Lvls/IIILvl6.tsx";
+import IIILvl7 from "./Anal-Lvls/IIILvl7.tsx";
+import IIILvl8 from "./Anal-Lvls/IIILvl8.tsx";
+import IIILvl9 from "./Anal-Lvls/IIILvl9.tsx";
+import IIILvl10 from "./Anal-Lvls/IIILvl10.tsx";
+import IIIFin from "./Anal-Lvls/IIIFin.tsx";
 import TimerInitializer from "./componentes/TimerInitializer.tsx";
 
 const router = createBrowserRouter([
@@ -125,6 +132,34 @@ const router = createBrowserRouter([
   {
     path: "/IIILvl4",
     element: <IIILvl4 />,
+  },
+  {
+    path: "/IIILvl5",
+    element: <IIILvl5 />,
+  },
+  {
+    path: "/IIILvl6",
+    element: <IIILvl6 />,
+  },
+  {
+    path: "/IIILvl7",
+    element: <IIILvl7 />,
+  },
+  {
+    path: "/IIILvl8",
+    element: <IIILvl8 />,
+  },
+  {
+    path: "/IIILvl9",
+    element: <IIILvl9 />,
+  },
+  {
+    path: "/IIILvl10",
+    element: <IIILvl10 />,
+  },
+  {
+    path: "/IIIFin",
+    element: <IIIFin />,
   },
   {
     path: "/Register",
