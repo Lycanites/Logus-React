@@ -1,5 +1,5 @@
 import React from "react";
-import MiniLogica from "../assets/img/MiniLogica.jpg";
+import MiniLogica from "../assets/img/MiniLogica.png";
 import { Link } from "react-router-dom";
 
 const Logica = () => {
