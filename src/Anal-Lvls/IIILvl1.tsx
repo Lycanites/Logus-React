@@ -50,7 +50,7 @@ const IIILvl1 = () => {
               A El Bote
             </button>
           </Link>
-          <Link to="/IIILvl2 ">
+          <Link to="/IIILvl2">
             <button className="bg-azul text-white px-4 py-2 rounded">
               B El Pez
             </button>
