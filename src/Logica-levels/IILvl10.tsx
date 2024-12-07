@@ -26,7 +26,7 @@ const IILvl10 = () => {
                     </Link>
 
                     <div id="tiempo" className="mt-16">
-                    <Timer duration={30000} redirectTo="/ILvl2" /> {/* 30 segundos */}
+                    <Timer duration={30000} redirectTo="/IIFin" /> {/* 30 segundos */}
                     </div>
                     
                     <div id="instruccion" className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg">
