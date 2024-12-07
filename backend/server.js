@@ -91,7 +91,8 @@ app.post("/api/register", async (req, res) => {
 
 // Ruta de login
 app.post("/api/login", async (req, res) => {
-  const { usernameOrEmail, password } = req.body;
+  const { usernameOrEmail, password, logica, lectura, analisis, memoria } =
+    req.body;
 
   try {
     if (!usernameOrEmail || !password) {
@@ -139,6 +140,15 @@ app.post("/api/login", async (req, res) => {
     }
 
     loginAttempts.delete(attemptKey);
+
+    // Llamar al procedimiento almacenado para actualizar el perfil
+    await pool.execute("CALL UpdateUser Profile(?, ?, ?, ?, ?)", [
+      user.id,
+      logica,
+      lectura,
+      analisis,
+      memoria,
+    ]);
 
     const token = jwt.sign(
       {
