@@ -12,18 +12,30 @@ module.exports = {
       
 
       colors: {
+
+        rosa: "#FF7DBD",
+        rosaborder: "#ff3787",
+        rosatxt: "#FFFFFF",
+        rosahover: "#ffb3c6",
+
         verde: "#9bf06f",
         verdeborder: "#5ac923",
         verdehover: "#C2FFA3",
         verdetxt: "#FFFFFF",
+
+        violeta:"#6a499f",
+        violetahover:"#8068A6",
+
+        azul:"#5FC1FE",
+        azulborder:"#3485FF",
+        azulhover: "#a6e1fa",
+
+        naranja: "#d47534",
+        naranjaborder: "#AF602A",
+        naranjahover: "#E49762",
+
+        azularea:"#5FC1FE",
         morado: "#2a1059",
-        rosa: "#FF7DBD",
-        rosaborder: "#ff3787",
-        rosatxt: "#FFFFFF",
-        rosahover: "#f7bae4",
-        azul: "#5fc1fe",
-        azulborder: "#3485FF",
-        azulhover: "#C9E4FF",
         gris: "#181818",
         grismenu: "#d1cccc",
         amarillo: "#d1c050",
@@ -35,8 +47,8 @@ module.exports = {
 
       
       backgroundImage: {
-        Logicab: "url(../assets/img/MiniLogica.jpg)",
-        Lectura: "url ('/src/assets/img/MiniLectura.jpg')",
+        Logicab: "url(../assets/img/MiniLogica.png)",
+        Lectura: "url ('/src/assets/img/Lectura-rbg.png')",
         Analisis: "url ('/src/assets/img/Analisis.jpg')",
       },
     },

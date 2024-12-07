@@ -35,7 +35,7 @@ const IILvl4 = () => {
 
 
                 <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
-                    <Link to={"/IILvl4"}>
+                    <Link to={"/IILvl5"}>
                     <button className="bg-verde text-white px-4 py-2 rounded">
                     A. La luz
                     </button>
