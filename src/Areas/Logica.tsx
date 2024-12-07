@@ -1,12 +1,12 @@
 import React from "react";
-import MiniLogica from "../assets/img/Logica.jpg";
+import MiniLogica from "../assets/img/MiniLogica.jpg";
 import { Link } from "react-router-dom";
 
 const Logica = () => {
   return (
         <Link to={'/IILvl1'}>
 
-        <div className="bg-blue-400 h-[100vh]" >
+        <div className="bg-purple-400 h-[100vh]" >
 
             Dar clic 
         

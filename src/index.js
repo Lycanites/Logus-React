@@ -28,6 +28,17 @@ import IFin from "./Lectura-Lvls/IFin.tsx";
 
 import Logica from "./Areas/Logica.tsx";
 import IILvl1 from "./Logica-levels/IILvl1.tsx";
+import IILvl2 from "./Logica-levels/IILvl2.tsx";
+import IILvl3 from "./Logica-levels/IILvl3.tsx";
+import IILvl4 from "./Logica-levels/IILvl4.tsx";
+import IILvl5 from "./Logica-levels/IILvl5.tsx";
+import IILvl6 from "./Logica-levels/IILvl6.tsx";
+import IILvl7 from "./Logica-levels/IILvl7.tsx";
+import IILvl8 from "./Logica-levels/IILvl8.tsx";
+import IILvl9 from "./Logica-levels/IILvl9.tsx";
+import IILvl10 from "./Logica-levels/IILvl10.tsx";
+import IIFin from "./Logica-levels/IIFin.tsx";
+
 
 import Memoria from "./Areas/Memoria.tsx";
 import Analisis from "./Areas/Analisis.tsx";
@@ -52,6 +63,33 @@ const router = createBrowserRouter([
     path: "/Login",
     element: <Login />,
   },
+  {
+    path: "/Register",
+    element: <Register />,
+  },
+
+  {
+    path: "/Configuracion",
+    element: <Configuracion />,
+  },
+  {
+    path: "/Perfil",
+    element: <Perfil />,
+  },
+  {
+    path: "/TimerInitializer",
+    element: <TimerInitializer />,
+  },
+  {
+    path: "/cow",
+    element: <Vaca />,
+  },
+  {
+    path: "*",
+    element: <NotFout />,
+  },
+
+
   {
     path: "/Lectura",
     element: <Lectura />,
@@ -100,6 +138,8 @@ const router = createBrowserRouter([
     path: "/IFin",
     element: <IFin />,
   },
+
+
   {
     path: "/Logica",
     element: <Logica />,
@@ -109,38 +149,60 @@ const router = createBrowserRouter([
     element: <IILvl1 />,
   },
   {
+    path: "/IILvl2",
+    element: <IILvl2 />,
+  },
+  {
+    path: "/IILvl3",
+    element: <IILvl3 />,
+  },
+  {
+    path: "/IILvl4",
+    element: <IILvl4 />,
+  },
+  {
+    path: "/IILvl5",
+    element: <IILvl5 />,
+  },
+  {
+    path: "/IILvl6",
+    element: <IILvl6 />,
+  },
+  {
+    path: "/IILvl7",
+    element: <IILvl7 />,
+  },
+  {
+    path: "/IILvl8",
+    element: <IILvl9 />,
+  },
+  {
+    path: "/IILvl9",
+    element: <IILvl9 />,
+  },
+  {
+    path: "/IILvl10",
+    element: <IILvl10 />,
+  },
+  {
+    path: "/IIFin",
+    element: <IIFin />,
+  },
+
+
+  {
     path: "/Memoria",
     element: <Memoria />,
   },
+
+
   {
     path: "/Analisis",
     element: <Analisis />,
   },
-  {
-    path: "/Register",
-    element: <Register />,
-  },
 
-  {
-    path: "/Configuracion",
-    element: <Configuracion />,
-  },
-  {
-    path: "/Perfil",
-    element: <Perfil />,
-  },
-  {
-    path: "/TimerInitializer",
-    element: <TimerInitializer />,
-  },
-  {
-    path: "/cow",
-    element: <Vaca />,
-  },
-  {
-    path: "*",
-    element: <NotFout />,
-  },
+
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

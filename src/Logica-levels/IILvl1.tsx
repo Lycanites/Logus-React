@@ -30,35 +30,36 @@ const IILvl1 = () => {
                     </div>
                     
                     <div id="instruccion" className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg">
-                    <h1 className="text-center font-CreamBeige">Texto</h1>
+                    <h1 className="text-center font-CreamBeige">¿Cuántos huevos duros podría comerse una persona aún con el estómago vacío?</h1>
                     </div>
 
-                    <div id="texto" className = "p-4 font-Marykate text-white">
+                    {/* <div id="texto" className = "p-4 font-Marykate text-white">
                     <p>Texto</p>
-                    </div>
+                    </div> */}
 
                 <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
                     <Link to={"/IILvl2"}>
                     <button className="bg-verde text-white px-4 py-2 rounded">
-                    A. 1
+                    A. Uno  {/* correcta */}
+                    </button>
+                    </Link>
+                   
+
+                    <Link to={"/IILvl2"}>
+                    <button className="bg-verde text-white px-4 py-2 rounded">
+                    B. Ninguno
                     </button>
                     </Link>
 
                     <Link to={"/IILvl2"}>
                     <button className="bg-verde text-white px-4 py-2 rounded">
-                    B. 2
+                    C. Los mas posibles
                     </button>
                     </Link>
 
                     <Link to={"/IILvl2"}>
                     <button className="bg-verde text-white px-4 py-2 rounded">
-                    C. 3
-                    </button>
-                    </Link>
-
-                    <Link to={"/IILvl2"}>
-                    <button className="bg-verde text-white px-4 py-2 rounded">
-                    D. 4
+                    D. Los que quepan en su estomago
                     </button>
                     </Link>
         
