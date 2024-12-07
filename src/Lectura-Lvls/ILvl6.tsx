@@ -53,7 +53,7 @@ const ILvl6 = () => {
             A Encontrar agua
             </button>
           </Link>
-          <Link to="/ILvl7 ">
+          <Link to="/ILvl7">
             <button className="bg-verde text-white px-4 py-2 rounded">
             B Probar si existía petróleo
             </button>

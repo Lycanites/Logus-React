@@ -53,7 +53,7 @@ const ILvl10 = () => {
       A Los misterios del océano
       </button>
     </Link>
-    <Link to="/IFin ">
+    <Link to="/IFin">
       <button className="bg-verde text-white px-4 py-2 rounded">
       B Los enigmas de las estrellas
       </button>

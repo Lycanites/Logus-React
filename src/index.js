@@ -27,6 +27,10 @@ import ILvl8 from "./Lectura-Lvls/ILvl8.tsx";
 import ILvl9 from "./Lectura-Lvls/ILvl9.tsx";
 import ILvl10 from "./Lectura-Lvls/ILvl10.tsx";
 import IFin from "./Lectura-Lvls/IFin.tsx";
+import IIILvl1 from "./Anal-Lvls/IIILvl1.tsx";
+import IIILvl2 from "./Anal-Lvls/IIILvl2.tsx";
+import IIILvl3 from "./Anal-Lvls/IIILvl3.tsx";
+import IIILvl4 from "./Anal-Lvls/IIILvl4.tsx";
 import TimerInitializer from "./componentes/TimerInitializer.tsx";
 
 const router = createBrowserRouter([
@@ -105,6 +109,22 @@ const router = createBrowserRouter([
   {
     path: "/Analisis",
     element: <Analisis />,
+  },
+  {
+    path: "/IIILvl1",
+    element: <IIILvl1 />,
+  },
+  {
+    path: "/IIILvl2",
+    element: <IIILvl2 />,
+  },
+  {
+    path: "/IIILvl3",
+    element: <IIILvl3 />,
+  },
+  {
+    path: "/IIILvl4",
+    element: <IIILvl4 />,
   },
   {
     path: "/Register",
