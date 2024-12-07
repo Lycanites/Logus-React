@@ -41,7 +41,7 @@ const IIILvl7 = () => {
           className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg"
         >
           <h1 className="text-center font-CreamBeige">
-          	Mientras más quitas de mi, más grande me vuelo. ¿Quien soy?          </h1>
+          	Mientras mas quitas de mi, mas grande me vuelo. ¿Quien soy?          </h1>
         </div>
         <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
           <Link to={"/IIILvl8"}>

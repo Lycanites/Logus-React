@@ -41,7 +41,7 @@ const IIILvl9 = () => {
           className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg"
         >
           <h1 className="text-center font-CreamBeige">
-          Cuando llegue mi cumpleaños tendré siete años menos que mi hermano. Mi hermano tiene 20 años. ¿Cuántos años tengo?          </h1>
+          Cuando llegue mi cumpleaños tendré siete años menos que mi hermano. Mi hermano tiene 20 años. ¿Cuantos años tengo?          </h1>
         </div>
         <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
           <Link to={"/IIILvl10"}>

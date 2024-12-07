@@ -41,7 +41,7 @@ const IIILvl8 = () => {
           className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg"
         >
           <h1 className="text-center font-CreamBeige">
-          En la jarra pequeña caben 3 litros menos que en la grande. En la jarra pequeña caben 7 litros. ¿Cuántos litros caben en la jarra grande?          </h1>
+          En la jarra pequeña caben 3 litros menos que en la grande. En la jarra pequeña caben 7 litros. ¿Cuantos litros caben en la jarra grande?          </h1>
         </div>
         <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
           <Link to={"/IIILvl9"}>

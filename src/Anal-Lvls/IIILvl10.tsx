@@ -41,7 +41,7 @@ const IIILvl10 = () => {
           className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg"
         >
           <h1 className="text-center font-CreamBeige">
-          En el vaso grande hay dos pinturas más que en el vaso pequeño. En el vaso pequeño hay catorce pinturas. ¿Cuántas pinturas hay en el vaso grande?          </h1>
+          En el vaso grande hay dos pinturas más que en el vaso pequeño. En el vaso pequeño hay catorce pinturas. ¿Cuantas pinturas hay en el vaso grande?          </h1>
         </div>
         <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
           <Link to={"/IIIFin"}>
