@@ -8,7 +8,7 @@ const ILvl1 = () => {
   return (
     <div
       id="Lvlec"
-      className="bg-lime-500 h-[100vh] content-center text-center relative overflow-hidden"
+      className="bg-lime-500 h-[100vh] content-center text-center relative overflow-hidden space-y-0"
     >
       {/* Imagen de fondo con saturación */}
       <div
@@ -19,39 +19,45 @@ const ILvl1 = () => {
         }}
       />
 
-      <div className="relative z-10">
+      <div className="relative z-10 h-[100vh]">
         {/* Botón de volver en la esquina superior izquierda */}
         <Link to="/">
-          <button className="absolute top-4 left-4 bg-blue-500 text-white px-4 py-2 rounded">
+          <button className="absolute top-5 left-4 bg-volverlectura border-4 border-volverlecturaborde text-black px-4 py-2 rounded">
             Volver
           </button>
         </Link>
 
         {/* Texto de nivel en la esquina superior derecha */}
-        <h1 className="absolute top-4 right-4 text-white font-bold text-lg md:text-xl lg:text-2xl">
+        <h1 className="absolute top-1 right-10 text-white font-bold text-lg md:text-xl lg:text-2xl">
           Nivel 1
         </h1>
 
-        <div id="tiempo" className="mt-16">
-          <Timer duration={30000} redirectTo="/ILvl2" /> {/* 30 segundos */}
+        {/* Línea temporal */}
+        <div id="tiempo" className="mt-16 top-30">
+          <Timer duration={100000000000000000} redirectTo="/ILvl2" /> {/* 30 segundos */}
         </div>
 
+        {/* Pregunta */}
         <div
           id="instruccion"
-          className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg"
+          className="relative top-20 right-15 w-[50vw] bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg border-4 border-volverlecturaborde"
         >
           <h1 className="text-center font-CreamBeige">
             ¿De qué color es Millie?
           </h1>
         </div>
-        <div id="texto" className="p-4 font-Marykate">
+
+        {/* Ejercicio */}
+        <div id="texto" className="relative top-40 right-15 p-4 font-Marykate">
           <p>
             Noa y Hugo tienen una nueva mascota, se llama Millie, es un dálmata,
             es de color blanco con manchas negras, al perrito le gusta jugar con
             un hueso.
           </p>
         </div>
-        <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
+
+        {/* Botones */}
+        <div id="botones" className="relative top-60 right-15 grid grid-cols-2 gap-4 px-20 mt-4">
           <Link to={"/ILvl2"}>
             <button className="bg-verde text-white px-4 py-2 rounded">
               A Blanco
