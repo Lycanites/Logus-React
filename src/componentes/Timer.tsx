@@ -27,7 +27,7 @@ const Timer = ({ duration, redirectTo }) => {
         className="progress-bar"
         style={{ width: `${progressPercentage}%` }}
       />
-      <h1>Tiempo restante: {Math.floor(timeLeft / 1000)} segundos</h1>
+      <h1 className="font-Marykate">Tiempo restante: {Math.floor(timeLeft / 1000)} segundos</h1>
     </div>
   );
 };

@@ -29,6 +29,8 @@ module.exports = {
         amarillo: "#d1c050",
         amarillohover: "#dbcc6b",
         amarilloborder: "#bdae48",
+        volverlectura: "#B3FF8A",
+        volverlecturaborde: "#6FC94E"
       },
 
       
