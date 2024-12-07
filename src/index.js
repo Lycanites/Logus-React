@@ -17,6 +17,7 @@ import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
 import Lvl1 from "./Lectura-Lvls/Lvl1.tsx";
+import IILvl1 from "./Logica-levels/IILvl1.tsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/Logica",
     element: <Logica />,
+  },
+  {
+    path: "/IILvl1",
+    element: <IILvl1 />,
   },
   {
     path: "/Memoria",
