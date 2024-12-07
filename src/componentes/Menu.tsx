@@ -50,6 +50,14 @@ const Menu = () => {
         </button>
         </Link>
       </div>
+
+          <div>
+      <Link to="/MainMenu">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded">
+              Volver
+            </button>
+          </Link>
+          </div>
     </div>
   );
 };

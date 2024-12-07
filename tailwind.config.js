@@ -28,6 +28,7 @@ module.exports = {
       backgroundImage: {
         Logicab: "url(../assets/img/MiniLogica.jpg)",
         Lectura: "url ('/src/assets/img/MiniLectura.jpg')",
+        Analisis: "url ('/src/assets/img/Analisis.jpg')",
       },
     },
   },

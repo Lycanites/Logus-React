@@ -20,7 +20,7 @@ const IFin = () => {
   
         <div className="relative z-10">
           {/* Botón de volver en la esquina superior izquierda */}
-          <Link to="/">
+          <Link to="/Menu">
             <button className="absolute top-4 left-4 bg-blue-500 text-white px-4 py-2 rounded">
               Volver
             </button>

@@ -57,7 +57,7 @@ const ILvl1 = () => {
               A Blanco
             </button>
           </Link>
-          <Link to="/ILvl2 ">
+          <Link to="/ILvl2">
             <button className="bg-verde text-white px-4 py-2 rounded">
               B Negro
             </button>

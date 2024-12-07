@@ -53,7 +53,7 @@ const ILvl7 = () => {
             A Confiado
             </button>
           </Link>
-          <Link to="/ILvl8 ">
+          <Link to="/ILvl8">
             <button className="bg-verde text-white px-4 py-2 rounded">
             B Desconfiado
             </button>
