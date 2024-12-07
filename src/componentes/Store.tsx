@@ -1,7 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import Imagenes from "../assets/img/Imagenes"; // Asegúrate de que la ruta sea correcta
-import "./Landing.css";
+import "./Store.css";
+
+// Definición de la interfaz para las tarjetas
+interface CardData {
+    image: string;
+    title: string;
+    text: string;
+  }
 
 const Store = () => {
     const slides = [
@@ -38,6 +45,8 @@ const Store = () => {
         prevIndex === 0 ? slides.length - 1 : prevIndex - 1
       );
     };
+
+    
   
     return (
       <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
@@ -82,7 +91,12 @@ const Store = () => {
             ></button>
           ))}
         </div>
+        <div id="objetos">
+            
+        </div>
       </div>
+
+      
     );
   };
   
