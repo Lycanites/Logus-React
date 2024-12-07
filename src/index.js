@@ -8,19 +8,32 @@ import reportWebVitals from "./reportWebVitals";
 import NotFout from "./page/NotFout.tsx";
 import Login from "./componentes/Login.tsx";
 import Register from "./componentes/Register.tsx";
-import Lectura from "./Areas/Lectura.tsx";
-import Logica from "./Areas/Logica.tsx";
-import Memoria from "./Areas/Memoria.tsx";
-import Analisis from "./Areas/Analisis.tsx";
-import MainMenu from "./componentes/MainMenu.tsx";
 import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
+import TimerInitializer from "./componentes/TimerInitializer.tsx";
+
+import Lectura from "./Areas/Lectura.tsx";
 import ILvl1 from "./Lectura-Lvls/ILvl1.tsx";
 import ILvl2 from "./Lectura-Lvls/ILvl2.tsx";
 import ILvl3 from "./Lectura-Lvls/ILvl3.tsx";
 import ILvl4 from "./Lectura-Lvls/ILvl4.tsx";
-import TimerInitializer from "./componentes/TimerInitializer.tsx";
+import ILvl5 from "./Lectura-Lvls/ILvl6.tsx";
+import ILvl6 from "./Lectura-Lvls/ILvl7.tsx";
+import ILvl7 from "./Lectura-Lvls/ILvl8.tsx";
+import ILvl8 from "./Lectura-Lvls/ILvl9.tsx";
+import ILvl9 from "./Lectura-Lvls/ILvl10.tsx";
+import ILvl10 from "./Lectura-Lvls/ILvl10.tsx";
+import IFin from "./Lectura-Lvls/IFin.tsx";
+
+import Logica from "./Areas/Logica.tsx";
+import IILvl1 from "./Logica-levels/IILvl1.tsx";
+
+import Memoria from "./Areas/Memoria.tsx";
+import Analisis from "./Areas/Analisis.tsx";
+import MainMenu from "./componentes/MainMenu.tsx";
+
+
 
 const router = createBrowserRouter([
   {
