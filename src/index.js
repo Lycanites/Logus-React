@@ -20,6 +20,13 @@ import ILvl1 from "./Lectura-Lvls/ILvl1.tsx";
 import ILvl2 from "./Lectura-Lvls/ILvl2.tsx";
 import ILvl3 from "./Lectura-Lvls/ILvl3.tsx";
 import ILvl4 from "./Lectura-Lvls/ILvl4.tsx";
+import ILvl5 from "./Lectura-Lvls/ILvl5.tsx";
+import ILvl6 from "./Lectura-Lvls/ILvl6.tsx"; 
+import ILvl7 from "./Lectura-Lvls/ILvl7.tsx";
+import ILvl8 from "./Lectura-Lvls/ILvl8.tsx";
+import ILvl9 from "./Lectura-Lvls/ILvl9.tsx";
+import ILvl10 from "./Lectura-Lvls/ILvl10.tsx";
+import IFin from "./Lectura-Lvls/IFin.tsx";
 import TimerInitializer from "./componentes/TimerInitializer.tsx";
 
 const router = createBrowserRouter([
@@ -58,6 +65,34 @@ const router = createBrowserRouter([
   {
     path: "/ILvl4",
     element: <ILvl4 />,
+  },
+  {
+    path: "/ILvl5",
+    element: <ILvl5 />,
+  },
+  {
+    path: "/ILvl6",
+    element: <ILvl6 />,
+  },
+  {
+    path: "/ILvl7",
+    element: <ILvl7 />,
+  },
+  {
+    path: "/ILvl8",
+    element: <ILvl8 />,
+  },
+  {
+    path: "/ILvl9",
+    element: <ILvl9 />,
+  },
+  {
+    path: "/ILvl10",
+    element: <ILvl10 />,
+  },
+  {
+    path: "/IFin",
+    element: <IFin />,
   },
   {
     path: "/Logica",

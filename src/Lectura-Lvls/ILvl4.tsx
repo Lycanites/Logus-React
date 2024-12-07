@@ -48,22 +48,22 @@ const ILvl4 = () => {
           <p>El tiempo resulto demasiado RAQUITICO para concluir la tarea.</p>
         </div>
         <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
-          <Link to={"/ILvl2"}>
+          <Link to={"/ILvl5"}>
             <button className="bg-verde text-white px-4 py-2 rounded">
               A Adecuado
             </button>
           </Link>
-          <Link to="/ILvl2 ">
+          <Link to="/ILvl5 ">
             <button className="bg-verde text-white px-4 py-2 rounded">
               B Estrecho
             </button>
           </Link>
-          <Link to="/ILvl2">
+          <Link to="/ILvl5">
             <button className="bg-verde text-white px-4 py-2 rounded">
               C Suficiente
             </button>
           </Link>
-          <Link to="/ILvl2">
+          <Link to="/ILvl5">
             <button className="bg-verde text-white px-4 py-2 rounded">
               D Largo
             </button>

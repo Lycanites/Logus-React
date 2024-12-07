@@ -48,22 +48,22 @@ const ILvl2 = () => {
           <p>El camino hacia el éxito a veces resulta INASEQUIBLE.</p>
         </div>
         <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
-          <Link to={"/ILvl2"}>
+          <Link to={"/ILvl3"}>
             <button className="bg-verde text-white px-4 py-2 rounded">
               A Fácil
             </button>
           </Link>
-          <Link to="/ILvl2 ">
+          <Link to="/ILvl3 ">
             <button className="bg-verde text-white px-4 py-2 rounded">
               B Dificil
             </button>
           </Link>
-          <Link to="/ILvl2">
+          <Link to="/ILvl3">
             <button className="bg-verde text-white px-4 py-2 rounded">
               C Sencillo
             </button>
           </Link>
-          <Link to="/ILvl2">
+          <Link to="/ILvl3">
             <button className="bg-verde text-white px-4 py-2 rounded">
               D Accesible
             </button>
