@@ -6,61 +6,84 @@ import MiniMemoria from "../assets/img/MiniMemoria.png";
 import MiniLogica from "../assets/img/MiniLogica.png";
 
 const Menu = () => {
-  return (
-          <div className="bg-grismenu h-[100vh] flex items-center justify-center relative">
+  const buttonClass =
+    "shadow-2xl bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-300 hover:to-gray-400 border-gray-300 border-8 text-center text-gray-700 font-CreamBeige w-full h-64 text-xl rounded-lg flex flex-col items-center justify-center";
 
-            <Link to="/MainMenu">
-              <button className="px-6 py-2 bg-naranja text-2xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-naranjaborder border-4 transition-colors absolute top-5 left-5 sm:top-10 sm:left-8 shadow-2xl">
-                Volver
-              </button>
-            </Link>
-            
-              <div
-                id="botones"
-                className="grid grid-cols-1 sm:grid-cols-2 gap-8 px-8 sm:px-60 py-10 w-full h-full"
-              >
-                
-                <Link to={'/Lectura'}>
-                  <button className="shadow-2xl bg-verde hover:bg-verdehover border-verdeborder border-8 text-center text-white font-CreamBeige w-full h-64 text-xl rounded-lg flex flex-col items-center justify-center overflow-hidden mt-20 sm:mt-0">
-                    <img
-                      src={MiniLectura}
-                      className="w-1/2 h-3/4 mb-2"
-                    />
-                    Lectura
-                  </button>
-                </Link>
-                
-                <Link to={'/Analisis'}>
-                  <button className="shadow-2xl bg-azularea hover:bg-azulhover border-azulborder border-8 text-center text-white font-CreamBeige w-full h-64 text-xl rounded-lg flex flex-col items-center justify-center overflow-hidden">
-                    <img
-                      src={MiniLAnalisis}
-                      className="w-2/3 h-3/4 mb-2"
-                    />
-                    Análisis
-                  </button>
-                </Link>
-               
-                <Link to={'/Memoria'}>
-                  <button className="shadow-2xl bg-rosa hover:bg-rosahover border-rosaborder border-8 text-center text-white font-CreamBeige w-full h-64 text-xl rounded-lg flex flex-col items-center justify-center overflow-hidden">
-                    <img
-                      src={MiniMemoria}
-                      className="w-2/3 h-3/4 mb-2"
-                    />
-                    Memoria
-                  </button>
-                </Link>
-                
-                <Link to={'/Logica'}>
-                  <button className="shadow-2xl bg-violeta hover:bg-violetahover border-morado border-8 text-center text-white font-CreamBeige w-full h-64 text-xl rounded-lg flex flex-col items-center justify-center overflow-hidden">
-                    <img
-                      src={MiniLogica}
-                      className="w-1/2 h-3/4 mb-2"
-                    />
-                    Lógica
-                  </button>
-                </Link>
-              </div>
-          </div>
+  return (
+    <div className="bg-grismenu h-screen flex flex-col items-center justify-start relative sm:h-[160vh] p-5vh">
+      <div id="voler" className="w-full sm:h-[10vh] p-20 sm:p-6 md:p-8 lg:p-10">
+        <Link to="/MainMenu">
+          <button className="px-8 py-2 bg-naranja text-2xl font-MaryKate text-white rounded-3xl hover:bg-naranjahover border-naranjaborder border-4 transition-colors absolute top-10 left-8 sm:top-10 sm:left-8 shadow-2xl">
+            Volver
+          </button>
+        </Link>
+      </div>
+
+      <div
+        id="botones"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-8 px-4 sm:h-[40vh] md:px-20 lg:px-60 py-20 w-full h-full"
+      >
+        <div id="bt-lectura" className="flex flex-col items-center">
+          <Link to={"/Lectura"}>
+            <button
+              className={`${buttonClass} bg-verde hover:bg-verdehover border-verdeborder w-full flex flex-col items-center sm:px-10`}
+            >
+              <img
+                src={MiniLectura}
+                className="w-[300px] h-[300px] object-cover mb-2"
+                alt="Lectura"
+              />
+              Lectura
+            </button>
+          </Link>
+        </div>
+
+        <div id="bt-anal" className="flex flex-col items-center">
+          <Link to={"/Analisis"}>
+            <button
+              className={`${buttonClass} bg-azularea hover:bg-azulhover border-azulborder w-full flex flex-col items-center`}
+            >
+              <img
+                src={MiniLAnalisis}
+                className="w-[300px] h-[300px] object-cover mb-2"
+                alt="Análisis"
+              />
+              Análisis
+            </button>
+          </Link>
+        </div>
+
+        <div id="bt-memory" className="flex flex-col items-center">
+          <Link to={"/Memoria"}>
+            <button
+              className={`${buttonClass} bg-rosa hover:bg-rosahover border-rosaborder w-full flex flex-col items-center`}
+            >
+              <img
+                src={MiniMemoria}
+                className="w-[300px] h-[300px] object-cover mb-2"
+                alt="Memoria"
+              />
+              Memoria
+            </button>
+          </Link>
+        </div>
+
+        <div id="bt-logica" className="flex flex-col items-center">
+          <Link to={"/Logica"}>
+            <button
+              className={`${buttonClass} bg-violeta hover:bg-violetahover border-morado w-full flex flex-col items-center`}
+            >
+              <img
+                src={MiniLogica}
+                className="w-[300px] h-[300px] object-cover mb-2"
+                alt="Lógica"
+              />
+              Lógica
+            </button>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 
