@@ -76,9 +76,9 @@ app.post("/api/register", async (req, res) => {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // Insertar nuevo usuario
+    // Insertar nuevo usuario, incluyendo la fecha de registro
     await pool.execute(
-      "INSERT INTO Users (username, email, password) VALUES (?, ?, ?)",
+      "INSERT INTO Users (username, email, password, fecha_registro) VALUES (?, ?, ?, NOW())",
       [username, email, hashedPassword]
     );
 
@@ -141,15 +141,6 @@ app.post("/api/login", async (req, res) => {
 
     loginAttempts.delete(attemptKey);
 
-    // Llamar al procedimiento almacenado para actualizar el perfil
-    await pool.execute("CALL UpdateUser Profile(?, ?, ?, ?, ?)", [
-      user.id,
-      logica,
-      lectura,
-      analisis,
-      memoria,
-    ]);
-
     const token = jwt.sign(
       {
         userId: user.id,
@@ -174,6 +165,7 @@ app.post("/api/login", async (req, res) => {
     res.status(500).json({
       error: "SERVER_ERROR",
       message: "Error en el servidor",
+      details: error.message, // Added for more detailed debugging
     });
   }
 });
