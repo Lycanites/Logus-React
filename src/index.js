@@ -177,13 +177,14 @@ const router = createBrowserRouter([
     element: <Perfil />,
   },
   {
-    path: "/Carrusel",
-    element: <Carrusel />,
-  },
-  {
     path: "/Store",
     element: <Store />,
   },
+  {
+    path: "/Carrusel",
+    element: <Carrusel />,
+  },
+
   {
     path: "/TimerInitializer",
     element: <TimerInitializer />,

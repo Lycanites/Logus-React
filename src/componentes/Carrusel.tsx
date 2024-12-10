@@ -1,103 +1,96 @@
-import React from "react";
-import { useState } from "react";
-import Imagenes from "../assets/img/Imagenes"; // Asegúrate de que la ruta sea correcta
-import "./Carrusel.css";
-
-// Definición de la interfaz para las tarjetas
-interface CardData {
-    image: string;
-    title: string;
-    text: string;
-  }
+import React from 'react';
+import { useState } from 'react';
 
 const Carrusel = () => {
-    const slides = [
-      {
-        img: "http://www.bcu.ac.uk/mediaitem/visual-communication-illustration-02-130585258441045504.jpg?quality=90",
-        title: "Gusti Ilustración",
-        description: "Exposición",
-      },
-      {
-        img: "https://via.placeholder.com/800x400",
-        title: "Slide 2",
-        description: "Descripción del slide 2",
-      },
-      {
-        img: "https://via.placeholder.com/800x400",
-        title: "Slide 3",
-        description: "Descripción del slide 3",
-      },
-      {
-        img: "https://via.placeholder.com/800x400",
-        title: "Slide 4",
-        description: "Descripción del slide 4",
-      },
-    ];
-  
-    const [currentIndex, setCurrentIndex] = useState(0);
-  
-    const nextSlide = () => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    };
-  
-    const prevSlide = () => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-      );
-    };
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    
-  
-    return (
-      <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
-        {/* Slides */}
-        <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-          {slides.map((slide, index) => (
-            <div key={index} className="min-w-full">
-              <img
-                src={slide.img}
-                alt={slide.title}
-                className="w-full h-auto"
-              />
-              <div className="absolute bottom-0 left-0 w-full p-4 text-white bg-black bg-opacity-50">
-                <h3 className="text-lg font-bold">{slide.title}</h3>
-                <p>{slide.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-  
-        {/* Controles */}
+  const images = [
+    {
+      src: "http://www.bcu.ac.uk/mediaitem/visual-communication-illustration-02-130585258441045504.jpg?quality=90",
+      alt: "Ilustracion",
+      title: "Gusti Ilustración",
+      description: "Exposición"
+    },
+    {
+      src: "https://ugc.kn3.net/i/origin/http://thisiscolossal.com/wp-content/uploads/2011/02/anthony-2-600x424.jpg",
+      alt: "Fotografía",
+      title: "Xataka Fotografía",
+      description: "Concurso"
+    },
+    {
+      src: "https://mir-s3-cdn-cf.behance.net/project_modules/1400/e86e8b59124321.5a15e4ccd8622.jpg",
+      alt: "Pintura",
+      title: "DoArt Pintura",
+      description: "Curso"
+    },
+    {
+      src: "https://cdn.dribbble.com/users/324248/screenshots/3978513/planet2_800.jpg",
+      alt: "Diseño Gráfico",
+      title: "UX UI Diseño Gráfico",
+      description: "Curso"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="relative max-w-4xl mx-auto">
+      {/* Indicadores */}
+      <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4 z-10">
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75"
+          className="bg-black bg-opacity-50 text-white p-2 rounded-full"
         >
-          &#10094;
+          ‹
         </button>
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75"
+          className="bg-black bg-opacity-50 text-white p-2 rounded-full"
         >
-          &#10095;
+          ›
         </button>
-  
-        {/* Indicadores */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-white" : "bg-gray-400"} transition`}
-            ></button>
-          ))}
-        </div>
-        <div id="objetos">
-            
-        </div>
       </div>
 
-      
-    );
-  };
-  
-  export default Carrusel
+      {/* Contenido del Carrusel */}
+      <div className="relative overflow-hidden rounded-lg">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`transition-opacity duration-700 ease-in-out ${
+              index === currentIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              className="w-full h-auto mx-auto"
+              src={image.src}
+              alt={image.alt}
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+              <h3 className="text-lg">{image.title}</h3>
+              <p>{image.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Indicadores del Carrusel */}
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2.5 h-2.5 rounded-full ${index === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Carrusel;

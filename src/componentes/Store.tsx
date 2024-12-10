@@ -1,12 +1,12 @@
-import React from "react";
-import Carrusel from "./Carrusel";
+import React from 'react';
+import Carrusel from './Carrusel';
 
-const Store = () => {
+function Store() {
   return (
-    <div id='Store'>
+    <div className="App">
       <Carrusel />
     </div>
-  )
+  );
 }
 
 export default Store;
