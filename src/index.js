@@ -16,6 +16,7 @@ import MainMenu from "./componentes/MainMenu.tsx";
 import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
+import Carrusel from "./componentes/Carrusel.tsx";
 import Store from "./componentes/Store.tsx";
 import ILvl1 from "./Lectura-Lvls/ILvl1.tsx";
 import ILvl2 from "./Lectura-Lvls/ILvl2.tsx";
@@ -174,6 +175,10 @@ const router = createBrowserRouter([
   {
     path: "/Perfil",
     element: <Perfil />,
+  },
+  {
+    path: "/Carrusel",
+    element: <Carrusel />,
   },
   {
     path: "/Store",
