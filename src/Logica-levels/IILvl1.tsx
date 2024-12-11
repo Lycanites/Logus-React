@@ -19,7 +19,7 @@ const IILvl1 = () => {
         
             <div className="relative z-10"> {/* Botón de volver en la esquina superior izquierda */}
             
-                    <Link to="/">
+                    <Link to="/Logica">
                     <button className="absolute top-4 left-4 bg-lime-500 text-white px-4 py-2 rounded">
                         Volver
                     </button>
