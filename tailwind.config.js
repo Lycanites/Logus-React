@@ -30,9 +30,9 @@ module.exports = {
         azulborder:"#3485FF",
         azulhover: "#a6e1fa",
 
-        naranja: "#d47534",
-        naranjaborder: "#AF602A",
-        naranjahover: "#E49762",
+        naranja: "#FF812C",
+        naranjaborder: "#EB5E00",
+        naranjahover: "#F9B891",
 
         azularea:"#5FC1FE",
         morado: "#2a1059",
