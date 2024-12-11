@@ -16,8 +16,6 @@ import MainMenu from "./componentes/MainMenu.tsx";
 import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
-import Carrusel from "./componentes/Carrusel.tsx";
-import Store from "./componentes/Store.tsx";
 import ILvl1 from "./Lectura-Lvls/ILvl1.tsx";
 import ILvl2 from "./Lectura-Lvls/ILvl2.tsx";
 import ILvl3 from "./Lectura-Lvls/ILvl3.tsx";
@@ -41,6 +39,7 @@ import IIILvl9 from "./Anal-Lvls/IIILvl9.tsx";
 import IIILvl10 from "./Anal-Lvls/IIILvl10.tsx";
 import IIIFin from "./Anal-Lvls/IIIFin.tsx";
 import TimerInitializer from "./componentes/TimerInitializer.tsx";
+import Carousel from "./componentes/Carousel.tsx";
 
 const router = createBrowserRouter([
   {
@@ -177,12 +176,8 @@ const router = createBrowserRouter([
     element: <Perfil />,
   },
   {
-    path: "/Store",
-    element: <Store />,
-  },
-  {
-    path: "/Carrusel",
-    element: <Carrusel />,
+    path: "/Carousel",
+    element: <Carousel />,
   },
 
   {
