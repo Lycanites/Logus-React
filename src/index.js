@@ -74,11 +74,6 @@ const router = createBrowserRouter([
     path: "/Carousel",
     element: <Carousel />,
   },
-
-  {
-    path: "/TimerInitializer",
-    element: <TimerInitializer />,
-  },
   {
     path: "/cow",
     element: <Vaca />,
