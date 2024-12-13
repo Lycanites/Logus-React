@@ -93,7 +93,7 @@ const Logica = () => {
             </button>
           </Link>
 
-          <Link to="/ILvl2">
+          <Link to="/ILvl1">
             <button className="px-8 py-2 bg-purple-500 text-xl font-semibold text-white rounded-lg hover:bg-purple-400 border-2 border-purple-600 transition-colors shadow-md">
               Continuar
             </button>
