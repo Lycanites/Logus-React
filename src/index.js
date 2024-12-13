@@ -12,15 +12,19 @@ import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
 import TimerInitializer from "./componentes/TimerInitializer.tsx";
+import MainMenu from "./componentes/MainMenu.tsx";
 
 import Lectura from "./Areas/Lectura.tsx";
-import ILvl2 from "./Juego/Lectura.tsx";
-import ILvl3 from "./Juego/Analisis.tsx";
-import ILvl4 from "./Juego/Memoria.tsx";
-
+import Logica from "./Areas/Logica.tsx";
 import Memoria from "./Areas/Memoria.tsx";
 import Analisis from "./Areas/Analisis.tsx";
-import MainMenu from "./componentes/MainMenu.tsx";
+
+import LE from "./Juego/LE.tsx";
+import LO from "./Juego/LO.tsx";
+import AN from "./Juego/AN.tsx";
+import ME from "./Juego/ME.tsx";
+
+
 
 const router = createBrowserRouter([
   {
@@ -65,31 +69,40 @@ const router = createBrowserRouter([
     element: <NotFout />,
   },
 
+
+
   {
     path: "/Lectura",
     element: <Lectura />,
   },
   {
-    path: "/ILvl2",
-    element: <ILvl2 />,
+    path: "/LE",
+    element: <LE />,
   },
   {
-    path: "/ILvl3",
-    element: <ILvl3 />,
+    path: "/Logica",
+    element: <Logica />,
   },
   {
-    path: "/ILvl4",
-    element: <ILvl4 />,
+    path: "/LO",
+    element: <LO />,
   },
-  {
-    path: "/Memoria",
-    element: <Memoria />,
-  },
-
   {
     path: "/Analisis",
     element: <Analisis />,
   },
+  {
+    path: "/AN",
+    element: <AN />,
+  },{
+    path: "/Memoria",
+    element: <Memoria />,
+  },
+  {
+    path: "/ME",
+    element: <ME />,
+  },
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

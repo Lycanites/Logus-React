@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Memoria = ({ volverAlMenu }) => {
+const ME = ({ volverAlMenu }) => {
   // Estados del juego
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
@@ -14,61 +15,61 @@ const Memoria = ({ volverAlMenu }) => {
       pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba la fresa?",
       imagen: "/imagenes/m_ej1.png", // Ruta de la imagen
       opciones: ["2", "9", "4", "8"],
-      correcta: 1, //
+      correcta: 1, 
     },
     {
       pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba la manzana?",
       imagen: "/imagenes/m_ej2.png", // Ruta de la imagen
       opciones: ["4", "3", "8", "6"],
-      correcta: 2, // Corregido de 3 a 2
+      correcta: 2, 
     },
     {
       pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba el globo?",
       imagen: "/imagenes/m_ej3.png", // Ruta de la imagen
       opciones: ["7", "1", "3", "5"],
-      correcta: 0, // Corregido de 1 a 0
+      correcta: 0,
     },
     {
       pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba el oso?",
       imagen: "/imagenes/m_ej5.png", // Ruta de la imagen
       opciones: ["1", "4", "9", "6"],
-      correcta: 2, // Corregido de 3 a 2
+      correcta: 2, 
     },
     {
       pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba el perro?",
       imagen: "/imagenes/m_ej6.png", // Ruta de la imagen
       opciones: ["9", "7", "4", "1"],
-      correcta: 1, // Corregido de 2 a 1
+      correcta: 1, 
     },
     {
       pregunta: "¿Qué objeto era pareja con la naranja?",
       imagen: "/imagenes/m_ej7.png", // Ruta de la imagen
       opciones: ["El auto", "El barco", "El camión", "La moto"],
-      correcta: 0, // Corregido de 1 a 0
+      correcta: 0, 
     },
     {
       pregunta: "¿Qué objeto era pareja con la pera?",
       imagen: "/imagenes/m_ej8.png", // Ruta de la imagen
       opciones: ["El barco", "El camión", "El avión", "La moto"],
-      correcta: 2, // Corregido de 3 a 2
+      correcta: 2, 
     },
     {
       pregunta: "¿Qué objeto era pareja con el gato?",
       imagen: "/imagenes/m_ej9.png", // Ruta de la imagen
       opciones: ["Un helado", "La pelota", "Un trébol", "La sombrilla"],
-      correcta: 2, // Corregido de 3 a 2
+      correcta: 2, 
     },
     {
       pregunta: "¿Qué objeto era pareja con la mariposa?",
       imagen: "/imagenes/m_ej10.png", // Ruta de la imagen
       opciones: ["El perro", "El león", "La pelota", "El girasol"],
-      correcta: 3, // Corregido de 4 a 3
+      correcta: 3, 
     },
     {
       pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba el barco?",
       imagen: "/imagenes/m_ej4.png", // Ruta de la imagen
       opciones: ["6", "2", "9", "7"],
-      correcta: 3, // Corregido de 4 a 3
+      correcta: 3, 
     },
     
 
@@ -137,47 +138,49 @@ const Memoria = ({ volverAlMenu }) => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-pink-200 to-pink-300 h-[100vh] flex flex-col justify-center items-center text-white p-6">
-      <h1 className="text-4xl font-bold text-pink-900 mb-6 font-cursive">Juego de Memoria</h1>
+    <div className="bg-gradient-to-r from-rosa to-rosahover h-[100vh] flex flex-col justify-center items-center text-white p-6">
+      <h1 className="text-4xl font-CreamBeige text-black mb-6 font-cursive">Memoria</h1>
 
-      <div className="w-full bg-pink-100 h-6 rounded-md overflow-hidden mb-6">
+      <div className="w-full bg-rosa h-6 rounded-md overflow-hidden mb-6 border-4 border-rosaborder">
         <div
-          className="h-full bg-pink-400 transition-all duration-1000 ease-linear"
+          className="h-full bg-rosahover transition-all duration-1000 ease-linear"
           style={{ width: `${(tiempoRestante / 10) * 100}%` }}
         ></div>
       </div>
 
-      {juegoTerminado ? (
-        <div className="text-center text-pink-900">
-          <h2 className="text-3xl mb-4">Puntuación final: {marcador}</h2>
-          <button
-            className="px-6 py-3 bg-pink-500 text-white rounded-full hover:bg-pink-400 transition mr-4"
-            onClick={reiniciarJuego}
-          >
-            Reiniciar Juego
-          </button>
-          <button
-            className="px-6 py-3 bg-pink-600 text-white rounded-full hover:bg-pink-500 transition"
-            onClick={volverAlMenu}
-          >
-            Volver al Menú
-          </button>
-        </div>
-      ) : (
+       {juegoTerminado ? (
+                <div className="text-center text-black">
+                  <h2 className="text-3xl mb-4">Puntuación final: {marcador}</h2>
+                  <div className="flex justify-center gap-4">
+                    <button
+                      className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl"
+                      onClick={reiniciarJuego}>
+                      Reiniciar Juego
+                    </button>
+      
+                    <Link to ="/Menu">
+                      <button className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl">
+                        Volver al Menú
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+                  
+       ) : (
         <>
           {mostrandoImagen ? (
             <div className="text-center mb-6">
-  <img
-    src={preguntaActual.imagen}
-    alt="Imagen"
-    className="w-96 h-96 object-contain border-4 border-pink-500 rounded-lg shadow-lg"
-  />
-</div>
+              <img
+                src={preguntaActual.imagen}
+                alt="Imagen"
+                className="w-96 h-96 object-contain border-8 border-rosaborder rounded-lg shadow-lg"
+              />
+            </div>
 
           ) : (
             <>
               <div className="text-center">
-                <h2 className="text-2xl font-semibold text-pink-800 mb-6 bg-white p-6 rounded-lg shadow-lg font-sans">
+                <h2 className="text-2xl font-sans text-black mb-6 bg-white p-6 rounded-lg shadow-lg border-8 border-rosaborder">
                   {preguntaActual.pregunta}
                 </h2>
               </div>
@@ -187,14 +190,14 @@ const Memoria = ({ volverAlMenu }) => {
                   <button
                     key={index}
                     onClick={() => manejarRespuesta(index)}
-                    className="bg-white text-pink-800 px-6 py-3 rounded-lg hover:bg-pink-100 transition"
+                    className="bg-white text-black font-sans font-semibold px-6 py-3 rounded-lg hover:bg-rosahover border-4 border-rosaborder transition"
                   >
                     {opcion}
                   </button>
                 ))}
               </div>
 
-              <div className="text-center mt-4 text-xl font-bold text-pink-400">
+              <div className="text-center mt-4 text-xl font-CreamBeige text-black">
                 {mensaje}
               </div>
             </>
@@ -205,4 +208,4 @@ const Memoria = ({ volverAlMenu }) => {
   );
 };
 
-export default Memoria;
+export default ME;

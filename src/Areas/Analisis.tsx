@@ -74,7 +74,7 @@ const Analisis = () => {
             <h2 className="text-4xl font-CreamBeige text-black-800 mb-4">
               {shuffledSections[highlightedSection]?.text}
             </h2>
-            <p className="text-5xl text-black-600 font-Marykate mb-4">
+            <p className="text-4xl text-justify text-black font-sans mb-4">
               {infoContent.Analisis} {/* Aseguramos que siempre se muestre el texto de "Análisis" */}
             </p>
           </div>
@@ -96,7 +96,7 @@ const Analisis = () => {
             </button>
           </Link>
 
-          <Link to="/ILvl3">
+          <Link to="/AN">
             <button className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl">
               Continuar
             </button>
