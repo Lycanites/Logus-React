@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Logica = ({ volverAlMenu }) => {
+const Lectura = ({ volverAlMenu }) => {
   // Estados del juego
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
@@ -200,4 +200,4 @@ const Logica = ({ volverAlMenu }) => {
   );
 };
 
-export default Logica;
+export default Lectura;
