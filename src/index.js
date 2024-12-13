@@ -14,9 +14,9 @@ import Perfil from "./componentes/Perfil.tsx";
 import TimerInitializer from "./componentes/TimerInitializer.tsx";
 
 import Lectura from "./Areas/Lectura.tsx";
-import ILvl2 from "./Lectura-Lvls/Logica.tsx";
-import ILvl3 from "./Lectura-Lvls/Analisis.tsx";
-import ILvl4 from "./Lectura-Lvls/Memoria.tsx";
+import ILvl2 from "./Juego/Lectura.tsx";
+import ILvl3 from "./Juego/Analisis.tsx";
+import ILvl4 from "./Juego/Memoria.tsx";
 
 import Memoria from "./Areas/Memoria.tsx";
 import Analisis from "./Areas/Analisis.tsx";
