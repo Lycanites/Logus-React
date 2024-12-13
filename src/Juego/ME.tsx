@@ -12,72 +12,78 @@ const ME = ({ volverAlMenu }) => {
 
   const preguntas = [
     {
-      pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba la fresa?",
+      pregunta:
+        "De acuerdo con las posiciones, ¿en qué número se encontraba la fresa?",
       imagen: "/imagenes/m_ej1.png", // Ruta de la imagen
       opciones: ["2", "9", "4", "8"],
-      correcta: 1, 
+      correcta: 1,
     },
     {
-      pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba la manzana?",
+      pregunta:
+        "De acuerdo con las posiciones, ¿en qué número se encontraba la manzana?",
       imagen: "/imagenes/m_ej2.png", // Ruta de la imagen
       opciones: ["4", "3", "8", "6"],
-      correcta: 2, 
+      correcta: 2,
     },
     {
-      pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba el globo?",
+      pregunta:
+        "De acuerdo con las posiciones, ¿en qué número se encontraba el globo?",
       imagen: "/imagenes/m_ej3.png", // Ruta de la imagen
       opciones: ["7", "1", "3", "5"],
       correcta: 0,
     },
     {
-      pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba el oso?",
+      pregunta:
+        "De acuerdo con las posiciones, ¿en qué número se encontraba el oso?",
       imagen: "/imagenes/m_ej5.png", // Ruta de la imagen
       opciones: ["1", "4", "9", "6"],
-      correcta: 2, 
+      correcta: 2,
     },
     {
-      pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba el perro?",
+      pregunta:
+        "De acuerdo con las posiciones, ¿en qué número se encontraba el perro?",
       imagen: "/imagenes/m_ej6.png", // Ruta de la imagen
       opciones: ["9", "7", "4", "1"],
-      correcta: 1, 
+      correcta: 1,
     },
     {
       pregunta: "¿Qué objeto era pareja con la naranja?",
       imagen: "/imagenes/m_ej7.png", // Ruta de la imagen
       opciones: ["El auto", "El barco", "El camión", "La moto"],
-      correcta: 0, 
+      correcta: 0,
     },
     {
       pregunta: "¿Qué objeto era pareja con la pera?",
       imagen: "/imagenes/m_ej8.png", // Ruta de la imagen
       opciones: ["El barco", "El camión", "El avión", "La moto"],
-      correcta: 2, 
+      correcta: 2,
     },
     {
       pregunta: "¿Qué objeto era pareja con el gato?",
       imagen: "/imagenes/m_ej9.png", // Ruta de la imagen
       opciones: ["Un helado", "La pelota", "Un trébol", "La sombrilla"],
-      correcta: 2, 
+      correcta: 2,
     },
     {
       pregunta: "¿Qué objeto era pareja con la mariposa?",
       imagen: "/imagenes/m_ej10.png", // Ruta de la imagen
       opciones: ["El perro", "El león", "La pelota", "El girasol"],
-      correcta: 3, 
+      correcta: 3,
     },
     {
-      pregunta: "De acuerdo con las posiciones, ¿en qué número se encontraba el barco?",
+      pregunta:
+        "De acuerdo con las posiciones, ¿en qué número se encontraba el barco?",
       imagen: "/imagenes/m_ej4.png", // Ruta de la imagen
       opciones: ["6", "2", "9", "7"],
-      correcta: 3, 
+      correcta: 3,
     },
-    
-
   ];
 
   const mezclarPreguntas = () => preguntas.sort(() => Math.random() - 0.5);
 
-  const [preguntasAleatorias, setPreguntasAleatorias] = useState(mezclarPreguntas());
+  const [preguntasAleatorias, setPreguntasAleatorias] = useState(
+    mezclarPreguntas()
+  );
 
   const preguntaActual = preguntasAleatorias[indiceActual];
 
@@ -139,7 +145,9 @@ const ME = ({ volverAlMenu }) => {
 
   return (
     <div className="bg-gradient-to-r from-rosa to-rosahover h-[100vh] flex flex-col justify-center items-center text-white p-6">
-      <h1 className="text-4xl font-CreamBeige text-black mb-6 font-cursive">Memoria</h1>
+      <h1 className="text-4xl font-CreamBeige text-black mb-6 font-cursive">
+        Memoria
+      </h1>
 
       <div className="w-full bg-rosa h-6 rounded-md overflow-hidden mb-6 border-4 border-rosaborder">
         <div
@@ -148,25 +156,25 @@ const ME = ({ volverAlMenu }) => {
         ></div>
       </div>
 
-       {juegoTerminado ? (
-                <div className="text-center text-black">
-                  <h2 className="text-3xl mb-4">Puntuación final: {marcador}</h2>
-                  <div className="flex justify-center gap-4">
-                    <button
-                      className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl"
-                      onClick={reiniciarJuego}>
-                      Reiniciar Juego
-                    </button>
-      
-                    <Link to ="/Menu">
-                      <button className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl">
-                        Volver al Menú
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-                  
-       ) : (
+      {juegoTerminado ? (
+        <div className="text-center text-white">
+          <h2 className="text-3xl mb-4">Puntuación final: {marcador}</h2>
+          <div className="flex justify-center gap-4">
+            <button
+              className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl"
+              onClick={reiniciarJuego}
+            >
+              Reiniciar Juego
+            </button>
+
+            <Link to="/Menu">
+              <button className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl">
+                Volver al Menú
+              </button>
+            </Link>
+          </div>
+        </div>
+      ) : (
         <>
           {mostrandoImagen ? (
             <div className="text-center mb-6">
@@ -176,7 +184,6 @@ const ME = ({ volverAlMenu }) => {
                 className="w-96 h-96 object-contain border-8 border-rosaborder rounded-lg shadow-lg"
               />
             </div>
-
           ) : (
             <>
               <div className="text-center">

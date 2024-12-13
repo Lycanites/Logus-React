@@ -11,7 +11,6 @@ import Register from "./componentes/Register.tsx";
 import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
-import TimerInitializer from "./componentes/TimerInitializer.tsx";
 import MainMenu from "./componentes/MainMenu.tsx";
 
 import Lectura from "./Areas/Lectura.tsx";
@@ -23,6 +22,10 @@ import LE from "./Juego/LE.tsx";
 import LO from "./Juego/LO.tsx";
 import AN from "./Juego/AN.tsx";
 import ME from "./Juego/ME.tsx";
+
+import Gamemode from "./componentes/Gamemode.tsx";
+import Fiesta from "./Juego/Fiesta.tsx";
+import Zen from "./Juego/Zen.tsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +39,18 @@ const router = createBrowserRouter([
   {
     path: "/Menu",
     element: <Menu />,
+  },
+  {
+    path: "/Gamemode",
+    element: <Gamemode />,
+  },
+  {
+    path: "/Fiesta",
+    element: <Fiesta />,
+  },
+  {
+    path: "/Zen",
+    element: <Zen />,
   },
   {
     path: "/Login",
