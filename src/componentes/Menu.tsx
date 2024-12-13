@@ -7,13 +7,13 @@ import MiniLogica from "../assets/img/MiniLogica.png";
 
 const Menu = () => {
   const buttonClass =
-    "shadow-2xl bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-300 hover:to-gray-400 border-gray-300 border-8 text-center text-gray-700 font-CreamBeige w-full h-64 text-xl rounded-lg flex flex-col items-center justify-center";
+    "shadow-2xl from-gray-100 border-8 text-center font-CreamBeige w-full h-64 rounded-lg flex flex-col justify-center";
 
   return (
     <div className="bg-grismenu h-screen flex flex-col items-center justify-start relative sm:h-[100vh] p-5vh">
           <div id="voler" className="w-full sm:h-[10vh] p-10 sm:p-6 md:p-8 lg:p-10">
             <Link to="/MainMenu">
-              <button className="px-8 py-2 bg-naranja text-2xl font-MaryKate text-white rounded-3xl hover:bg-naranjahover border-naranjaborder border-4 transition-colors absolute top-10 left-8 sm:top-10 sm:left-8 shadow-2xl">
+              <button className="px-8 py-2 bg-naranja text-2xl font-MaryKate font-semibold text-white rounded-3xl hover:bg-naranjahover border-naranjaborder border-4 transition-colors absolute top-10 left-8 sm:top-10 sm:left-8 shadow-2xl">
                 Volver
               </button>
             </Link>
@@ -48,7 +48,7 @@ const Menu = () => {
                         className="w-[300px] h-[300px] object-cover mb-2"
                         alt="Análisis"
                       />
-                      Análisis
+                      Analisis
                     </button>
                   </Link>
                 </div>
@@ -84,6 +84,11 @@ const Menu = () => {
                 </div>
           </div>
     </div>
+
+    
+
+
+
   );
 };
 

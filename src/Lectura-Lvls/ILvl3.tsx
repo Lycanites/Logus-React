@@ -133,6 +133,7 @@ const Analisis = ({ volverAlMenu }) => {
           >
             Reiniciar Juego
           </button>
+          
           <button
             className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-500 transition"
             onClick={volverAlMenu}
