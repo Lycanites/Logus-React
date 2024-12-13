@@ -1,8 +1,9 @@
 import React from "react";
 import "./ILvl.css";
 import { Link } from "react-router-dom";
-import backgroundImage from "../assets/img/Lectura.jpg"; // Asegúrate de que esta ruta sea correcta
-import Timer from "../componentes/Timer.tsx"; // Asegúrate de que la ruta sea correcta
+import backgroundImage from "../assets/img/Lectura.jpg"; 
+import Timer from "../componentes/Timer.tsx"; 
+
 
 const ILvl1 = () => {
   return (
