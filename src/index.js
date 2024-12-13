@@ -27,6 +27,7 @@ import Gamemode from "./componentes/Gamemode.tsx";
 import Fiesta from "./Juego/Fiesta.tsx";
 import Zen from "./Juego/Zen.tsx";
 
+import Carousel from "./componentes/Carousel.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +69,15 @@ const router = createBrowserRouter([
   {
     path: "/Perfil",
     element: <Perfil />,
+  },
+  {
+    path: "/Carousel",
+    element: <Carousel />,
+  },
+
+  {
+    path: "/TimerInitializer",
+    element: <TimerInitializer />,
   },
   {
     path: "/cow",
