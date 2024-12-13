@@ -11,7 +11,6 @@ import Register from "./componentes/Register.tsx";
 import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
-import TimerInitializer from "./componentes/TimerInitializer.tsx";
 
 import Lectura from "./Areas/Lectura.tsx";
 import ILvl1 from "./Lectura-Lvls/ILvl1.tsx";
@@ -83,10 +82,6 @@ const router = createBrowserRouter([
   {
     path: "/Perfil",
     element: <Perfil />,
-  },
-  {
-    path: "/TimerInitializer",
-    element: <TimerInitializer />,
   },
   {
     path: "/cow",
