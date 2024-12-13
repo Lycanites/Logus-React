@@ -41,7 +41,7 @@ const IIILvl1 = () => {
           className="bg-white max-h-[50vh] max-w-screen-md mx-auto p-4 rounded-lg shadow-lg"
         >
           <h1 className="text-center font-CreamBeige">
-          Me ves en el agua, pero nunca me mojo. ¿Quien soy?
+            Me ves en el agua, pero nunca me mojo. ¿Quien soy?
           </h1>
         </div>
         <div id="botones" className="grid grid-cols-2 gap-4 px-20 mt-4">
