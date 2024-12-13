@@ -24,7 +24,7 @@ module.exports = {
         verdetxt: "#FFFFFF",
 
         violeta:"#6a499f",
-        violetahover:"#8068A6",
+        violetahover:"#917FAC",
 
         azul:"#5FC1FE",
         azulborder:"#3485FF",

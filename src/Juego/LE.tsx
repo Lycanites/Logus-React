@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Logica = ({ volverAlMenu }) => {
+const LE = ({ volverAlMenu }) => {
   // Estados del juego
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
@@ -12,31 +13,6 @@ const Logica = ({ volverAlMenu }) => {
     {
       pregunta: "Verde es a hierba como amarillo es a:",
       opciones: ["Papel", "Plátano", "Árbol", "Libro"],
-      correcta: 1,
-    },
-    {
-      pregunta: "Bisturí es a cirujano como:",
-      opciones: ["Foco a alumbrado", "Martillo a carpintero", "Estola a sacerdote", "Mineral a minero"],
-      correcta: 1,
-    },
-    {
-      pregunta: "Lima es a Perú como:",
-      opciones: ["Ciudad a país", "Chile a Santiago", "Madrid a España", "España a Madrid"],
-      correcta: 2,
-    },
-    {
-      pregunta: "Vaso es a copa como agua a:",
-      opciones: ["Jarabe", "Líquido", "Vino", "Vaso"],
-      correcta: 1,
-    },
-    {
-      pregunta: "Alto es a deporte como bajo es a:",
-      opciones: ["Natación", "Inactividad", "Actividad", "Tranquilidad"],
-      correcta: 1,
-    },
-    {
-      pregunta: "Mucho es a poco como:",
-      opciones: ["Cuaderno a libreta", "Suficiente a bastante", "Oriente a occidente", "Harina a pastel"],
       correcta: 1,
     },
     {
@@ -73,6 +49,31 @@ const Logica = ({ volverAlMenu }) => {
       pregunta: "El Éxodo de los Arlequines: Bajo la luz de la luna, los arlequines bailan melodías ancestrales, guiándose hacia un reino oculto donde los sueños y la realidad convergen, deteniendo el tiempo.",
       opciones: ["Un bosquejo secreto en las profundidades del bosque", "Un gran baile de máscaras", "Un reino oculto donde el tiempo se detiene y los sueños se entrelazan", "Una ciudad olvidada enterrada bajo la tierra"],
       correcta: 2,
+    },
+    {
+      pregunta: "Bisturí es a cirujano como:",
+      opciones: ["Foco a alumbrado", "Martillo a carpintero", "Estola a sacerdote", "Mineral a minero"],
+      correcta: 1,
+    },
+    {
+      pregunta: "Lima es a Perú como:",
+      opciones: ["Ciudad a país", "Chile a Santiago", "Madrid a España", "España a Madrid"],
+      correcta: 2,
+    },
+    {
+      pregunta: "Vaso es a copa como agua a:",
+      opciones: ["Jarabe", "Líquido", "Vino", "Vaso"],
+      correcta: 1,
+    },
+    {
+      pregunta: "Alto es a deporte como bajo es a:",
+      opciones: ["Natación", "Inactividad", "Actividad", "Tranquilidad"],
+      correcta: 1,
+    },
+    {
+      pregunta: "Mucho es a poco como:",
+      opciones: ["Cuaderno a libreta", "Suficiente a bastante", "Oriente a occidente", "Harina a pastel"],
+      correcta: 1,
     },
     {
       pregunta: "La Ciudad Invisible: Cuenta la leyenda que en un punto lejano del horizonte se oculta una ciudad invisible, revelada solo a quienes poseen un corazón puro. La ciudad es un reflejo de los sueños más profundos de quienes la encuentran, construida con luz y esperanza.",
@@ -144,36 +145,38 @@ const Logica = ({ volverAlMenu }) => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-green-200 to-green-300 h-[100vh] flex flex-col justify-center items-center text-white p-6">
-      <h1 className="text-4xl font-bold text-green-900 mb-6 font-cursive">Juego de Lectura</h1>
+    <div className="bg-gradient-to-r from-verdeborder to-verde h-[100vh] flex flex-col justify-center items-center text-white p-6">
+      <h1 className="text-4xl font-CreamBeige text-black mb-6 font-cursive">Lectura</h1>
 
-      <div className="w-full bg-green-100 h-6 rounded-md overflow-hidden mb-6">
+      <div className="w-full bg-verdeborder h-6 rounded-md overflow-hidden border-4 border-verdehover mb-6">
         <div
-          className="h-full bg-green-400 transition-all duration-1000 ease-linear"
+          className="h-full bg-verde transition-all duration-1000 ease-linear"
           style={{ width: `${(tiempoRestante / 10) * 100}%` }}
         ></div>
       </div>
 
-      {juegoTerminado ? (
-        <div className="text-center text-green-900">
-          <h2 className="text-3xl mb-4">Puntuación final: {marcador}</h2>
-          <button
-            className="px-6 py-3 bg-green-500 text-white rounded-full hover:bg-green-400 transition mr-4"
-            onClick={reiniciarJuego}
-          >
-            Reiniciar Juego
-          </button>
-          <button
-            className="px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-500 transition"
-            onClick={volverAlMenu}
-          >
-            Volver al Menú
-          </button>
-        </div>
-      ) : (
+       {juegoTerminado ? (
+                  <div className="text-center text-black">
+                  <h2 className="text-3xl mb-4">Puntuación final: {marcador}</h2>
+                  <div className="flex justify-center gap-4">
+                    <button
+                      className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl"
+                      onClick={reiniciarJuego}>
+                      Reiniciar Juego
+                    </button>
+      
+                    <Link to="/Menu">
+                      <button className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl">
+                        Volver al Menú
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+                  
+                ) : (
         <>
           <div className="text-center">
-          <h2 className="text-2xl font-semibold text-green-800 mb-6 bg-white p-6 rounded-lg shadow-lg font-sans">
+          <h2 className="text-2xl font-sans font-semibold text-black mb-6 bg-white p-6 rounded-lg shadow-lg font-sans border-8 border-verdeborder">
   {preguntaActual.pregunta}
 </h2>
 
@@ -184,14 +187,14 @@ const Logica = ({ volverAlMenu }) => {
               <button
                 key={index}
                 onClick={() => manejarRespuesta(index)}
-                className="bg-white text-green-800 px-6 py-3 rounded-lg hover:bg-green-100 transition"
+                className="bg-white font-sans font-semibold text-black py-3 rounded-lg hover:bg-verdehover transition border-4 border-verdeborder"
               >
                 {opcion}
               </button>
             ))}
           </div>
 
-          <div className="text-center mt-4 text-xl font-bold text-green-400">
+          <div className="text-center mt-4 text-xl font-CreamBeige text-black">
             {mensaje}
           </div>
         </>
@@ -200,4 +203,4 @@ const Logica = ({ volverAlMenu }) => {
   );
 };
 
-export default Logica;
+export default LE;

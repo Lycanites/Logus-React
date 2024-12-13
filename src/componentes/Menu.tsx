@@ -7,7 +7,7 @@ import MiniLogica from "../assets/img/MiniLogica.png";
 
 const Menu = () => {
   const buttonClass =
-    "shadow-2xl bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-300 hover:to-gray-400 border-gray-300 border-8 text-center text-gray-700 font-CreamBeige w-full h-64 text-xl rounded-lg flex flex-col items-center justify-center";
+    "shadow-2xl from-gray-100 border-8 text-center font-CreamBeige w-full h-64 rounded-lg flex flex-col justify-center";
 
   return (
     <div className="bg-grismenu h-screen flex flex-col items-center justify-start relative sm:h-[100vh] p-5vh">
@@ -48,7 +48,7 @@ const Menu = () => {
                 className="w-[300px] h-[300px] object-cover mb-2"
                 alt="Análisis"
               />
-              Análisis
+              Analisis
             </button>
           </Link>
         </div>
@@ -68,9 +68,7 @@ const Menu = () => {
           </Link>
           {/* Botón Fiesta debajo de Memoria, con más horizontalidad */}
           <Link to={"/ILvl5"}>
-            <button
-              className="shadow-2xl bg-gradient-to-r from-red-400 via-yellow-400 to-blue-500 hover:from-pink-400 hover:via-green-400 hover:to-purple-500 border-gray-300 border-8 text-center text-white font-CreamBeige w-full h-24 text-xl rounded-lg flex items-center justify-center mt-4"
-            >
+            <button className="shadow-2xl bg-gradient-to-r from-red-400 via-yellow-400 to-blue-500 hover:from-pink-400 hover:via-green-400 hover:to-purple-500 border-gray-300 border-8 text-center text-white font-CreamBeige w-full h-24 text-xl rounded-lg flex items-center justify-center mt-4">
               🎉 Fiesta 🎉
             </button>
           </Link>
@@ -91,9 +89,7 @@ const Menu = () => {
           </Link>
           {/* Botón Zen debajo de Lógica, con más horizontalidad */}
           <Link to={"/ILvl7"}>
-            <button
-              className="shadow-2xl bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300 hover:from-green-300 hover:via-yellow-300 hover:to-orange-300 border-gray-300 border-8 text-center text-white font-CreamBeige w-full h-24 text-xl rounded-lg flex items-center justify-center mt-4"
-            >
+            <button className="shadow-2xl bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300 hover:from-green-300 hover:via-yellow-300 hover:to-orange-300 border-gray-300 border-8 text-center text-white font-CreamBeige w-full h-24 text-xl rounded-lg flex items-center justify-center mt-4">
               🌸 Zen 🌸
             </button>
           </Link>
