@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Memoria = ({ volverAlMenu }) => {
   // Estados del juego
@@ -192,12 +193,15 @@ const Memoria = ({ volverAlMenu }) => {
           >
             Reiniciar Juego
           </button>
+          
+          <Link to={'/Gamemode'}> 
           <button
             className="px-6 py-3 bg-pink-600 text-white rounded-full hover:bg-pink-500 transition"
             onClick={volverAlMenu}
           >
             Volver al Menú
           </button>
+          </Link>
         </div>
       ) : (
         <>

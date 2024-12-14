@@ -38,7 +38,7 @@ const Menu = () => {
           </Link>
 
           <Link to="/Carousel">
-            <button className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-naranjaborder border-4 transition-colors shadow-2xl">
+            <button className="px-12 py-2 bg-amarillo text-xl font-semibold text-white rounded-3xl hover:bg-amarillohover border-amarilloborder border-4 transition-colors shadow-2xl">
               Tienda
             </button>
           </Link>
