@@ -1,0 +1,81 @@
+.Title {
+  font-family: CreamBeige;
+  font-size: 3rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: black;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 400px;
+  max-width: 800px;
+  text-align: center;
+  font-family: Creambeige;
+  font-size: small;
+}
+
+.close-button {
+  float: right;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  float: right;
+  color: #712cdf;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.SignIn {
+  background-color: #712cdf;
+  padding: 10px;
+  border-radius: 15px;
+  transition: 1s;
+  font-size: 1.5rem;
+}
+.SignUp {
+  background-color: #712cdf;
+  padding: 10px;
+  border-radius: 15px;
+  transition: 1s;
+  font-size: 1.5rem;
+}
+.SignIn:hover {
+  background-color: #712cdf;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 2rem;
+}
+.SignUp:hover {
+  background-color: #712cdf;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 2rem;
+}
+
+@font-face {
+  font-family: Marykate;
+  src: url("../assets/fonts/MaryKate.ttf");
+}
+
+@font-face {
+  font-family: Cream-Beige;
+  src: url("../assets/fonts/CreamBeige.ttf");
+}

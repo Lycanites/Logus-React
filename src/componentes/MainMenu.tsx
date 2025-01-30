@@ -2,6 +2,29 @@ import React, { useState } from "react";
 import Imagenes from "../assets/img/Imagenes"; // Asegúrate de que la ruta sea correcta
 import { Link } from "react-router-dom";
 import "./MainMenu.css";
+import Modal from "./Modal.tsx";
+
+function POPUP() {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
+  <div>
+    <Modal ModalOpen={isModalOpen} onClose={closeModal}>
+      <h2>Contenido del Modal</h2>
+      <p>Este es un ejemplo de un modal en React con TypeScript.</p>
+    </Modal>
+  </div>;
+}
+
+const Configuracion: React.FC<{ openModal: () => void }> = ({ openModal }) => {
+  return (
+    <div>
+      <h1>Configuración</h1>
+      <button onClick={openModal}>Abrir Modal</button>
+    </div>
+  );
+};
 
 const Menu = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -24,13 +47,7 @@ const Menu = () => {
               Jugar
             </button>
           </Link>
-
-          <Link to="/Configuracion">
-            <button className="px-4 py-2 bg-verde text-xl font-semibold text-verdetxt rounded-3xl hover:bg-verdehover transition-colors border-verdeborder border-4 font-Creambeige shadow-2xl">
-              Configuracion
-            </button>
-          </Link>
-
+          <div className="modal"></div>
           <Link to="/Perfil">
             <button className="px-14 py-2 bg-azul text-xl font-semibold text-white rounded-3xl hover:bg-azulhover border-azulborder border-4 transition-colors shadow-2xl">
               Perfil

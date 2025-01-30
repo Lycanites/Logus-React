@@ -42,11 +42,12 @@ const LandingPage: React.FC = () => {
       >
         <h1 className="text-3xl m-0"></h1>
       </section>
-      <section className="flex flex-wrap justify-center p-5 h-[100vh]">
+
+      <section className="flex flex-wrap justify-center p-5 gap-4">
         {cardsData.map((card, index) => (
           <div
             key={index}
-            className={`bg-white rounded-lg shadow-md m-3 w-80 text-center overflow-hidden transition-transform duration-300 ${
+            className={`bg-white rounded-lg shadow-md m-3 w-full sm:w-80 md:w-80 text-center overflow-hidden transition-transform duration-300 ${
               activeCard === index ? "transform scale-105" : ""
             }`}
             onClick={() => setActiveCard(activeCard === index ? null : index)}
@@ -74,7 +75,8 @@ const LandingPage: React.FC = () => {
           </div>
         ))}
       </section>
-      <footer className="bg-gris text-white p-5">
+
+      <footer className="bg-gris text-white p-5 mt-10">
         <div className="container mx-auto text-center">
           <h2 className="text-lg mb-2">Síguenos en nuestras redes sociales</h2>
           <div className="flex justify-center space-x-4">
@@ -87,7 +89,7 @@ const LandingPage: React.FC = () => {
               Facebook
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/Denko_SL"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"

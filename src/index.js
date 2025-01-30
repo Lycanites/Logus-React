@@ -28,10 +28,16 @@ import Fiesta from "./Juego/Fiesta.tsx";
 import Zen from "./Juego/Zen.tsx";
 
 import Carousel from "./componentes/Carousel.tsx";
+
+import Modal from "./componentes/Modal.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/Modal",
+    element: <Modal />,
   },
   {
     path: "/MainMenu",

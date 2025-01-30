@@ -34,18 +34,18 @@ const Analisis = () => {
   }, [shuffledSections]);
 
   const infoContent = {
-  Analisis:
+    Analisis:
       "El analisis es clave para descomponer información compleja en partes mas simples, lo que facilita la comprension y evaluacion de diferentes aspectos de un problema o concepto.",
   };
 
-
   return (
     <div className="bg-grismenu min-h-screen flex flex-col items-center justify-center p-4 shadow-2xl">
- 
       {/* Animación del cuadro giratorio */}
       {!showInfo && (
         <div
-          className={`relative w-96 h-96 rounded-lg ${isRotating ? "animate-spin" : ""}`}
+          className={`relative w-96 h-96 rounded-lg ${
+            isRotating ? "animate-spin" : ""
+          }`}
           style={{
             animationDuration: isRotating ? "2s" : "0s",
           }}
@@ -55,8 +55,10 @@ const Analisis = () => {
               key={index}
               className={`absolute w-1/2 h-1/2 ${
                 index % 2 === 0 ? "top-0" : "bottom-0"
-              } ${index < 2 ? "left-0" : "right-0"} ${section.color} flex items-center justify-center text-white text-xl font-bold ${
-                highlightedSection === index ? "ring-8 ring-azulborder" : "" 
+              } ${index < 2 ? "left-0" : "right-0"} ${
+                section.color
+              } flex items-center justify-center text-white text-xl font-bold ${
+                highlightedSection === index ? "ring-8 ring-azulborder" : ""
               }`}
             >
               {section.text}
@@ -65,27 +67,23 @@ const Analisis = () => {
         </div>
       )}
 
-
       {/* cuadro con info */}
       {showInfo && (
         <div className="flex flex-col md:flex-row items-center justify-between bg-azularea p-6 w-full md:w-3/4 rounded-lg border-8 border-azulborder shadow-2xl">
-          
           <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
             <h2 className="text-4xl font-CreamBeige text-black-800 mb-4">
               {shuffledSections[highlightedSection]?.text}
             </h2>
-            <p className="text-4xl text-justify text-black font-sans mb-4">
-              {infoContent.Analisis} {/* Aseguramos que siempre se muestre el texto de "Análisis" */}
+            <p className="text-4xl  text-black font-Marykate mb-4">
+              {infoContent.Analisis}{" "}
+              {/* Aseguramos que siempre se muestre el texto de "Análisis" */}
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <img src={MiniAnalisis} className="max-w-full h-auto rounded-lg"
-            />
+            <img src={MiniAnalisis} className="max-w-full h-auto rounded-lg" />
           </div>
         </div>
       )}
-
-
 
       {/* Botones */}
       {showInfo && (

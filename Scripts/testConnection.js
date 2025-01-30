@@ -2,10 +2,10 @@ const mysql = require("mysql2"); // O usa 'mysql' si prefieres
 
 // Configura tu conexión a la base de datos
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
+  host: "Hostinger",
+  user: "u564660586_Denkitive",
   password: "Logus_SL23",
-  database: "logusreact",
+  database: "u564660586_Logus",
   port: 3306, // El puerto por defecto de MySQL
 });
 
