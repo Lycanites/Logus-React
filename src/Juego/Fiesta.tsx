@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Memoria = ({ volverAlMenu }) => {
+const Fiesta = ({ volverAlMenu }) => {
   // Estados del juego
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
@@ -240,4 +240,4 @@ const Memoria = ({ volverAlMenu }) => {
   );
 };
 
-export default Memoria;
+export default Fiesta;
