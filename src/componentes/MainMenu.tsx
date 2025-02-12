@@ -2,12 +2,31 @@ import React, { useState } from "react";
 import Imagenes from "../assets/img/Imagenes"; // Asegúrate de que la ruta sea correcta
 import { Link } from "react-router-dom";
 import "./MainMenu.css";
+import Modal from "./Modal.tsx";
+import SoundManager from "./Configuracion.tsx";
 
-const Menu = () => {
+function POPUP() {
   const [isModalOpen, setModalOpen] = useState(false);
+
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  return (
+    <div>
+      <button
+        onClick={openModal}
+        className="px-4 py-2 bg-verde text-xl font-semibold text-white rounded-3xl hover:bg-verdehover border-verdeborder border-4 transition-colors shadow-2xl"
+      >
+        Configuracion
+      </button>
+      <Modal ModalOpen={isModalOpen} onClose={closeModal}>
+        <SoundManager />
+      </Modal>
+    </div>
+  );
+}
+
+const Menu = () => {
   return (
     <div className="bg-grismenu min-h-screen flex flex-col">
       {/* Header con imagen */}
@@ -24,13 +43,9 @@ const Menu = () => {
               Jugar
             </button>
           </Link>
-
-          <Link to="/Configuracion">
-            <button className="px-4 py-2 bg-verde text-xl font-semibold text-verdetxt rounded-3xl hover:bg-verdehover transition-colors border-verdeborder border-4 font-Creambeige shadow-2xl">
-              Configuracion
-            </button>
-          </Link>
-
+          <div className="modal">
+            <POPUP />
+          </div>
           <Link to="/Perfil">
             <button className="px-14 py-2 bg-azul text-xl font-semibold text-white rounded-3xl hover:bg-azulhover border-azulborder border-4 transition-colors shadow-2xl">
               Perfil

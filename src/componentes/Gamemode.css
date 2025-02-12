@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.hexagono {
+  position: relative;
+  width: 300px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.triangulo {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 75px 130px 75px 0; /* Tamaño del triángulo */
+  transform-origin: 0 50%; /* El punto de rotación es el centro izquierdo */
+  cursor: pointer;
+}
+
+/* Estilos individuales de cada triángulo */
+.t1 {
+  border-color: transparent green transparent transparent;
+  transform: rotate(0deg);
+}
+.t2 {
+  border-color: transparent blue transparent transparent;
+  transform: rotate(60deg);
+}
+.t3 {
+  border-color: transparent red transparent transparent;
+  transform: rotate(120deg);
+}
+.t4 {
+  border-color: transparent pink transparent transparent;
+  transform: rotate(180deg);
+}
+.t5 {
+  border-color: transparent purple transparent transparent;
+  transform: rotate(240deg);
+}
+.t6 {
+  border-color: transparent orange transparent transparent;
+  transform: rotate(300deg);
+}
+.t1:hover {
+  border-color: transparent green transparent transparent;
+  transform: rotate(0deg);
+  padding: 5px;
+}
+.t2 {
+  border-color: transparent blue transparent transparent;
+  transform: rotate(60deg);
+}
+.t3 {
+  border-color: transparent red transparent transparent;
+  transform: rotate(120deg);
+}
+.t4 {
+  border-color: transparent pink transparent transparent;
+  transform: rotate(180deg);
+}
+.t5 {
+  border-color: transparent purple transparent transparent;
+  transform: rotate(240deg);
+}
+.t6 {
+  border-color: transparent orange transparent transparent;
+  transform: rotate(300deg);
+}
