@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  height: 100vh; /* Altura completa de la ventana */
+  margin: 0; /* Eliminar márgenes por defecto */
+  background-color: #f0f0f0; /* Color de fondo */
+}
+
+.hexagono {
+  width: 200px; /* Ancho del hexágono */
+  height: 115.47px; /* Altura del hexágono (aproximadamente) */
+  background-color: #4caf50; /* Color de fondo del hexágono */
+  clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  ); /* Forma del hexágono */
+}

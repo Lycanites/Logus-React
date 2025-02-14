@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Gamemode.css";
 
 const VerticalSections = () => {
   return (
     <div className="flex flex-col h-screen">
       {/* Secciones principales */}
-      <div className="grid grid-cols-1 md:grid-cols-3 flex-grow gap-4 p-4">
-        <div className="flex items-center justify-center border-b md:border-r md:border-b-0 border-gray-300 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 flex-grow gap-4 p-4 ">
+        <div className="flex items-center">
           <Link to={"/Fiesta"}>
-            <button className="shadow-2xl bg-gradient-to-r from-red-400 via-yellow-400 to-blue-500 hover:from-pink-400 hover:via-green-400 hover:to-purple-500 border-gray-300 border-8 text-center text-white font-CreamBeige w-full h-24 text-xl rounded-lg flex items-center justify-center mt-4">
+            <div className="flex items-center justify-center border-b md:border-r md:border-b-0 border-gray-300 p-4 bg-black hover:p-6 hover:bg-white cursor-pointer ">
               🎉 Fiesta 🎉
-            </button>
+            </div>
           </Link>
         </div>
         <div className="flex items-center justify-center border-b md:border-r md:border-b-0 border-gray-300 p-4">

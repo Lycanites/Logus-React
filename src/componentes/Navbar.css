@@ -25,14 +25,17 @@
   display: flex; /* Mostrar los enlaces en línea */
   gap: 1rem; /* Espaciado entre los enlaces */
   transition: max-height 0.3s ease; /* Transición suave */
-
+  margin-left: auto;
   overflow: hidden; /* Ocultar contenido desbordante */
 }
 
 .btn {
   color: #fff;
   background-color: #712cdf;
-  float: right;
+  border-radius: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  font-family: CreamBeige;
 }
 
 .btn:hover {
@@ -47,15 +50,17 @@
   padding-left: 10px;
   padding-right: 10px;
   transition: 0.5s;
-  border-radius: 15%;
+  border-radius: 10px;
+  border-bottom: #712cdf;
 }
 
 .enlace:hover {
   color: #712cdf;
   border-bottom: #712cdf;
-  border-bottom-width: 15px;
   background-color: #7e7e7e;
-  border-radius: 15%;
+  border-radius: 10px;
+  border-bottom: #712cdf;
+  border-bottom: 5px;
 }
 
 .navbar-links.active {
@@ -89,6 +94,9 @@
   .navbar-toggle:checked ∼ .navbar-links {
     opacity: 1;
     visibility: visible;
+  }
+  .btn {
+    max-width: auto;
   }
 }
 
