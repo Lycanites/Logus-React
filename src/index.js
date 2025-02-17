@@ -31,6 +31,8 @@ import Carousel from "./componentes/Carousel.tsx";
 
 import Modal from "./componentes/Modal.tsx";
 
+import Multiplayer from "./componentes/Multiplayer.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -121,6 +123,9 @@ const router = createBrowserRouter([
   {
     path: "/ME",
     element: <ME />,
+  },
+  {
+    path: "/Multyplayer",
   },
 ]);
 

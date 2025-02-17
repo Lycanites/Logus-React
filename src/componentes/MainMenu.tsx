@@ -46,6 +46,11 @@ const Menu = () => {
           <div className="modal">
             <POPUP />
           </div>
+          <Link to={"/Gamemode"}>
+            <button className="px-14 py-2 bg-rosa text-xl font-semibold text-rosatxt rounded-3xl hover:bg-rosahover transition-colors border-rosaborder border-4 shadow-2xl">
+              Multijugador
+            </button>
+          </Link>
           <Link to="/Perfil">
             <button className="px-14 py-2 bg-azul text-xl font-semibold text-white rounded-3xl hover:bg-azulhover border-azulborder border-4 transition-colors shadow-2xl">
               Perfil
