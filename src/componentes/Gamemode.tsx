@@ -29,5 +29,8 @@ const VerticalSections = () => {
           </Link>
         </div>
       </div>
+    </div>
+  );
+};
 
-export default Verticalsections;
+export default VerticalSections;
