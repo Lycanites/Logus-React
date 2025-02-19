@@ -30,16 +30,4 @@ const VerticalSections = () => {
         </div>
       </div>
 
-      {/* Botón "Volver" */}
-      <div className="p-4">
-        <Link to="/MainMenu">
-          <div className="bg-gray-500 text-white text-center py-2 px-4 rounded-lg shadow-lg hover:bg-gray-600 transition duration-200">
-            <button className="text-sm font-medium">Volver</button>
-          </div>
-        </Link>
-      </div>
-    </div>
-  );
-};
-
-export default VerticalSections;
+export default Verticalsections;
