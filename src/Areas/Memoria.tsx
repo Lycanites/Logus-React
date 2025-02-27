@@ -4,9 +4,13 @@ import MiniMemoria from "../assets/img/MiniMemoria.png"; // Puedes cambiar la im
 
 const Memoria = () => {
   const [isRotating, setIsRotating] = useState(true);
-  const [highlightedSection, setHighlightedSection] = useState(null);
+  const [highlightedSection, setHighlightedSection] = useState<number | null>(
+    null
+  );
   const [showInfo, setShowInfo] = useState(false);
-  const [shuffledSections, setShuffledSections] = useState([]);
+  const [shuffledSections, setShuffledSections] = useState<
+    { color: string; text: string }[]
+  >([]);
 
   const sections = [
     { color: "bg-violeta", text: "Logica" },
@@ -43,7 +47,9 @@ const Memoria = () => {
       {/* Animación del cuadro giratorio */}
       {!showInfo && (
         <div
-          className={`relative w-96 h-96 rounded-lg ${isRotating ? "animate-spin" : ""}`}
+          className={`relative w-96 h-96 rounded-lg ${
+            isRotating ? "animate-spin" : ""
+          }`}
           style={{
             animationDuration: isRotating ? "2s" : "0s",
           }}
@@ -53,7 +59,9 @@ const Memoria = () => {
               key={index}
               className={`absolute w-1/2 h-1/2 ${
                 index % 2 === 0 ? "top-0" : "bottom-0"
-              } ${index < 2 ? "left-0" : "right-0"} ${section.color} flex items-center justify-center text-white text-xl font-bold ${
+              } ${index < 2 ? "left-0" : "right-0"} ${
+                section.color
+              } flex items-center justify-center text-white text-xl font-bold ${
                 highlightedSection === index ? "ring-8 ring-rosaborder" : "" // Cambio a color rosado
               }`}
             >
@@ -64,25 +72,23 @@ const Memoria = () => {
       )}
 
       {/* cuadro de info */}
-       {showInfo && (
-              <div className="flex flex-col md:flex-row items-center justify-between bg-rosa p-6 w-full md:w-3/4 rounded-lg border-8 border-rosaborder shadow-2xl">
-                
-                <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-                  <h2 className="text-4xl font-CreamBeige text-black-800 mb-4">
-                    {shuffledSections[highlightedSection]?.text}
-                  </h2>
-                  <p className="text-4xl text-black font-sans text-justify mb-4">
-                    {infoContent.Memoria}
-                  </p>
-                </div>
-      
-                <div className="md:w-1/2 flex justify-center">
-                  <img src={MiniMemoria} className="max-w-full h-auto rounded-lg"/>
-                </div>
-              </div>
-            )}
+      {showInfo && (
+        <div className="flex flex-col md:flex-row items-center justify-between bg-rosa p-6 w-full md:w-3/4 rounded-lg border-8 border-rosaborder shadow-2xl">
+          <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+            <h2 className="text-4xl font-CreamBeige text-black-800 mb-4">
+              {highlightedSection !== null &&
+                shuffledSections[highlightedSection]?.text}
+            </h2>
+            <p className="text-4xl text-black font-sans text-justify mb-4">
+              {infoContent.Memoria}
+            </p>
+          </div>
 
-
+          <div className="md:w-1/2 flex justify-center">
+            <img src={MiniMemoria} className="max-w-full h-auto rounded-lg" />
+          </div>
+        </div>
+      )}
 
       {/* Botones de navegación */}
       {showInfo && (

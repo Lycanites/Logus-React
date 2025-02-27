@@ -4,9 +4,13 @@ import MiniLectura from "../assets/img/Lectura-rbg.png";
 
 const Lectura = () => {
   const [isRotating, setIsRotating] = useState(true);
-  const [highlightedSection, setHighlightedSection] = useState(null);
+  const [highlightedSection, setHighlightedSection] = useState<number | null>(
+    null
+  );
   const [showInfo, setShowInfo] = useState(false);
-  const [shuffledSections, setShuffledSections] = useState([]);
+  const [shuffledSections, setShuffledSections] = useState<
+    { color: string; text: string }[]
+  >([]);
 
   const sections = [
     { color: "bg-violeta", text: "Logica" },
@@ -72,7 +76,8 @@ const Lectura = () => {
         <div className="flex flex-col md:flex-row items-center justify-between bg-verde p-6 w-full md:w-3/4 rounded-lg border-8 border-verdeborder shadow-2xl">
           <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
             <h2 className="text-4xl font-CreamBeige text-black-800 mb-4">
-              {shuffledSections[highlightedSection]?.text}
+              {highlightedSection !== null &&
+                shuffledSections[highlightedSection]?.text}
             </h2>
             <p className="text-4xl text-black mb-4 font-Marykate">
               {infoContent.Lectura}
