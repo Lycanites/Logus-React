@@ -1,6 +1,6 @@
 // src/components/SoundManager.tsx
 import React from "react";
-import { useSound } from "../context/SoundContext.tsx";
+import { useSound } from "../context/SoundContext";
 
 const SoundManager: React.FC = () => {
   const {
@@ -13,11 +13,16 @@ const SoundManager: React.FC = () => {
   } = useSound();
 
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setVolume(Number(event.target.value));
+    let newVolume = Number(event.target.value);
+    newVolume = Math.max(0, Math.min(100, newVolume)); // Asegura el rango
+    setVolume(newVolume);
   };
 
   const handleTrackChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setCurrentTrack(event.target.value);
+    const newTrack = event.target.value;
+    if (newTrack) {
+      setCurrentTrack(newTrack);
+    }
   };
 
   return (

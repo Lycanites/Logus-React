@@ -1,14 +1,14 @@
 import React from "react";
-import Navbar from "../componentes/Navbar.tsx";
-import LandingPage from "../componentes/Landing.tsx";
-import BackgroundMusic from "../componentes/BackgroundMusic.tsx";
+import Navbar from "../componentes/Navbar";
+import LandingPage from "../componentes/Landing";
+
 
 export default function Home() {
   return (
     <div>
       <Navbar />
       <LandingPage />
-      <BackgroundMusic />
+      
     </div>
   );
 }

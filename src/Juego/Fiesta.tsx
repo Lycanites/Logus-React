@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Fiesta = ({ volverAlMenu }) => {
+interface FiestaProps {
+  volverAlMenu: () => void; // Indica que es una función sin parámetros ni retorno
+}
+
+const Fiesta: React.FC<FiestaProps> = ({ volverAlMenu }) => {
   // Estados del juego
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
@@ -116,7 +120,7 @@ const Fiesta = ({ volverAlMenu }) => {
   const preguntaActual = preguntasAleatorias[indiceActual];
 
   useEffect(() => {
-    let intervalo;
+    let intervalo: ReturnType<typeof setInterval>;
     if (!juegoTerminado) {
       intervalo = setInterval(() => {
         setTiempoRestante((prev) => {
@@ -139,7 +143,7 @@ const Fiesta = ({ volverAlMenu }) => {
     }
   }, [mostrandoImagen]);
 
-  const manejarRespuesta = (index) => {
+  const manejarRespuesta = (index: number) => {
     if (juegoTerminado) return;
 
     if (index === preguntaActual.correcta) {

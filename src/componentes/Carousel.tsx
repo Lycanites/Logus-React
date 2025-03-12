@@ -110,7 +110,7 @@ const Carousel = () => {
     </div>
     <div id="compras" className="flex justify-center bg-blue-300 max-w-4xl mx-auto my-8">         
           <div id="botones1">
-          <Link>
+          <Link to="NotFout">
           <button className="
           flex
           m-10
@@ -137,7 +137,7 @@ const Carousel = () => {
             LoguCoins
           </button>
           </Link>
-          <Link>
+          <Link to="NotFout">
           <button className="
           flex
           m-10
@@ -168,7 +168,7 @@ const Carousel = () => {
           </Link>
           </div>
           <div id="botones2">
-          <Link>
+          <Link to="/NotFout">
           <button className="
           flex
           m-10
@@ -195,7 +195,7 @@ const Carousel = () => {
             Objetos
           </button>
           </Link>
-          <Link>
+          <Link to="/NotFout">
           <button className="
           flex
           m-10

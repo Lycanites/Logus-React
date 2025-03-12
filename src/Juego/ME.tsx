@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const ME = ({ volverAlMenu }) => {
+interface MEProps {
+  volverAlMenu: () => void; // Indica que volverAlMenu es una función que no recibe argumentos y no devuelve nada
+}
+
+const ME: React.FC<MEProps> = ({ volverAlMenu }) => {
   // Estados del juego
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
@@ -88,7 +92,7 @@ const ME = ({ volverAlMenu }) => {
   const preguntaActual = preguntasAleatorias[indiceActual];
 
   useEffect(() => {
-    let intervalo;
+    let intervalo: ReturnType<typeof setInterval>;
     if (!juegoTerminado) {
       intervalo = setInterval(() => {
         setTiempoRestante((prev) => {
@@ -111,7 +115,7 @@ const ME = ({ volverAlMenu }) => {
     }
   }, [mostrandoImagen]);
 
-  const manejarRespuesta = (index) => {
+  const manejarRespuesta = (index: number) => {
     if (juegoTerminado) return;
 
     if (index === preguntaActual.correcta) {

@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Timer.css"; // Asegúrate de crear este archivo CSS
 
-const Timer = ({ duration, redirectTo }) => {
-  const [timeLeft, setTimeLeft] = useState(duration);
+interface TimerProps {
+  duration: number; // Definir que 'duration' es un número
+  redirectTo: string; // Definir que 'redirectTo' es una cadena
+}
+
+const Timer: React.FC<TimerProps> = ({ duration, redirectTo }) => {
+  const [timeLeft, setTimeLeft] = useState<number>(duration);
   const navigate = useNavigate();
 
   useEffect(() => {

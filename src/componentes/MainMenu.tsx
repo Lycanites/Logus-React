@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Imagenes from "../assets/img/Imagenes"; // Asegúrate de que la ruta sea correcta
 import { Link } from "react-router-dom";
 import "./MainMenu.css";
-import Modal from "./Modal.tsx";
-import SoundManager from "./Configuracion.tsx";
+import Modal from "./Modal";
+import SoundManager from "./Configuracion";
 
 function POPUP() {
   const [isModalOpen, setModalOpen] = useState(false);

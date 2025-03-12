@@ -1,17 +1,32 @@
 // Componente React definitivo para mostrar perfil
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const Perfil = () => {
-  const [perfil, setPerfil] = useState(null);
+  type Perfil = {
+    username: string;
+    email: string;
+    fecha_registro: string;
+  };
+  const [perfil, setPerfil] = useState<Perfil | null>(null);
   const [cargando, setCargando] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("Por favor inicie sesión");
+      navigate("/Login");  // ✅ Redirige correctamente si no hay token
       return;
     }
+
+    const handleLogout = () => {
+      localStorage.removeItem("token");
+      navigate("/Login");
+    };
 
     axios
       .get("http://localhost:5000/api/user-profile", {
@@ -58,10 +73,11 @@ const Perfil = () => {
           {new Date(perfil.fecha_registro).toLocaleDateString()}
         </p>
       </div>
+      
       <button
         onClick={handleLogout}
         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mt-4"
-      >
+      >  
         Cerrar sesión
       </button>
     </div>

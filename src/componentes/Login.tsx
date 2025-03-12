@@ -192,7 +192,7 @@ function Login() {
       localStorage.removeItem("lockoutTime");
 
       // Redirigir después de un breve delay
-      setTimeout(() => navigate("/menu"), 1000);
+      setTimeout(() => navigate("/MainMenu"), 1000);
     } catch (error) {
       if (error instanceof Error) {
         setMessage({

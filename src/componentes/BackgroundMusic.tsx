@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundMusic from "../assets/music/BackgroundMusic.mp3";
+/*import backgroundMusic from "../assets/music/BackgroundMusic.mp3";
 
 const BackgroundMusic: React.FC = () => {
   return (
@@ -10,4 +10,4 @@ const BackgroundMusic: React.FC = () => {
   );
 };
 
-export default BackgroundMusic;
+export default BackgroundMusic;*/

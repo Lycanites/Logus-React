@@ -1,4 +1,5 @@
 import React from "react";
+/*import BackgroundMusic from "../componentes/BackgroundMusic.tsx";*/
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -32,6 +33,7 @@ import Carousel from "./componentes/Carousel.tsx";
 import Modal from "./componentes/Modal.tsx";
 
 import Multiplayer from "./componentes/Multiplayer.tsx";
+import { SoundProvider } from "./context/SoundContext.tsx";
 
 const router = createBrowserRouter([
   {
@@ -132,7 +134,10 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <SoundProvider>
     <RouterProvider router={router} />
+    {/*<BackgroundMusic />*/}
+    </SoundProvider>
   </React.StrictMode>
 );
 

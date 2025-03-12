@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const GameClient = () => {
-  const [ws, setWs] = useState(null);
-  const [messages, setMessages] = useState([]);
+  const [ws, setWs] = useState<WebSocket | null>(null);
+  const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState("");
 
   useEffect(() => {

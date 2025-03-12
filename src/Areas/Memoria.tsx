@@ -4,9 +4,9 @@ import MiniMemoria from "../assets/img/MiniMemoria.png"; // Puedes cambiar la im
 
 const Memoria = () => {
   const [isRotating, setIsRotating] = useState(true);
-  const [highlightedSection, setHighlightedSection] = useState(null);
+  const [highlightedSection, setHighlightedSection] = useState<number | null>(null);
   const [showInfo, setShowInfo] = useState(false);
-  const [shuffledSections, setShuffledSections] = useState([]);
+  const [shuffledSections, setShuffledSections] = useState<{ color: string; text: string }[]>([]);
 
   const sections = [
     { color: "bg-violeta", text: "Logica" },
@@ -69,7 +69,7 @@ const Memoria = () => {
                 
                 <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
                   <h2 className="text-4xl font-CreamBeige text-black-800 mb-4">
-                    {shuffledSections[highlightedSection]?.text}
+                  {highlightedSection !== null && shuffledSections[highlightedSection]?.text}
                   </h2>
                   <p className="text-4xl text-black font-sans text-justify mb-4">
                     {infoContent.Memoria}

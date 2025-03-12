@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const AN = ({ volverAlMenu }) => {
+interface ANProps {
+  volverAlMenu: () => void; // Indica que es una función sin parámetros ni retorno
+}
+
+const AN: React.FC<ANProps> = ({ volverAlMenu }) => {
   // Estados del juego
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
@@ -70,7 +74,7 @@ const AN = ({ volverAlMenu }) => {
   const preguntaActual = preguntasAleatorias[indiceActual];
 
   useEffect(() => {
-    let intervalo;
+    let intervalo: ReturnType<typeof setInterval>;
     if (!juegoTerminado) {
       intervalo = setInterval(() => {
         setTiempoRestante((prev) => {
@@ -85,7 +89,7 @@ const AN = ({ volverAlMenu }) => {
     return () => clearInterval(intervalo);
   }, [juegoTerminado]);
 
-  const manejarRespuesta = (index) => {
+  const manejarRespuesta = (index: number) => {
     if (juegoTerminado) return;
 
     if (index === preguntaActual.correcta) {

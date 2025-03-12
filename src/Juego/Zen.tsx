@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Memoria = ({ volverAlMenu }) => {
+
+interface MemoriaProps {
+  volverAlMenu: () => void; // Indica que es una función sin parámetros ni retorno
+}
+
+
+const Memoria: React.FC<MemoriaProps> = ({ volverAlMenu }) => {
   // Estados del juego
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
@@ -319,7 +325,7 @@ const Memoria = ({ volverAlMenu }) => {
 
   const preguntaActual = preguntas[indiceActual];
 
-  const manejarRespuesta = (index) => {
+  const manejarRespuesta = (index: number) => {
     if (index === preguntaActual.correcta) {
       setMarcador(marcador + 1);
       setMensaje("¡Correcto!");
