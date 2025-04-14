@@ -176,35 +176,35 @@ const Fiesta: React.FC<FiestaProps> = ({ volverAlMenu }) => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-pink-200 to-pink-300 h-[100vh] flex flex-col justify-center items-center text-white p-6">
-      <h1 className="text-4xl font-bold text-pink-900 mb-6 font-cursive">
-        Juego de Memoria
+    <div className="bg-gradient-to-r from-gris to-grismenu h-[100vh] flex flex-col justify-center items-center text-white p-6">
+      <h1 className="text-6xl font-bold text-pink-900 mb-6 font-CreamBeige">
+        FIESTA
       </h1>
 
       <div className="w-full bg-pink-100 h-6 rounded-md overflow-hidden mb-6">
         <div
-          className="h-full bg-pink-400 transition-all duration-1000 ease-linear"
+          className="h-full bg-azul transition-all duration-1000 ease-linear"
           style={{ width: `${(tiempoRestante / 10) * 100}%` }}
         ></div>
       </div>
 
       {juegoTerminado ? (
-        <div className="text-center text-pink-900">
-          <h2 className="text-3xl mb-4">Puntuación final: {marcador}</h2>
+        <div className="text-center text-pink-900 font-CreamBeige">
+          <h2 className="text-3xl mb-4">Puntuacion final: {marcador}</h2>
           <button
-            className="px-6 py-3 bg-pink-500 text-white rounded-full hover:bg-pink-400 transition mr-4"
+            className="px-6 py-3 bg-gris text-white rounded-full hover:bg-pink-400 transition mr-4"
             onClick={reiniciarJuego}
           >
             Reiniciar Juego
           </button>
-          
-          <Link to={'/Gamemode'}> 
-          <button
-            className="px-6 py-3 bg-pink-600 text-white rounded-full hover:bg-pink-500 transition"
-            onClick={volverAlMenu}
-          >
-            Volver al Menú
-          </button>
+
+          <Link to={"/Gamemode"}>
+            <button
+              className="px-6 py-3 bg-gris text-white rounded-full hover:bg-pink-500 transition"
+              onClick={volverAlMenu}
+            >
+              Volver al Menu
+            </button>
           </Link>
         </div>
       ) : (

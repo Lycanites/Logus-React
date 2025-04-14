@@ -31,6 +31,7 @@ import Zen from "./Juego/Zen.tsx";
 import Carousel from "./componentes/Carousel.tsx";
 
 import Modal from "./componentes/Modal.tsx";
+import Soporte from "./componentes/Soporte";
 
 import Multiplayer from "./componentes/Multiplayer.tsx";
 import { SoundProvider } from "./context/SoundContext.tsx";
@@ -129,14 +130,18 @@ const router = createBrowserRouter([
   {
     path: "/Multyplayer",
   },
+  {
+    path: "Soporte",
+    element: <Soporte />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <SoundProvider>
-    <RouterProvider router={router} />
-    {/*<BackgroundMusic />*/}
+      <RouterProvider router={router} />
+      {/*<BackgroundMusic />*/}
     </SoundProvider>
   </React.StrictMode>
 );

@@ -1,286 +1,135 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// JuegoLectura.tsx
+import React, { useEffect, useState } from "react";
 
-interface LEProps {
-  volverAlMenu: () => void; // Indica que es una función sin parámetros ni retorno
-}
+const ejercicios = [
+  {
+    pregunta: "Verde es a hierba como amarillo es a:",
+    opciones: ["Papel", "Plátano", "Árbol", "Libro"],
+    correcta: 1,
+  },
+  {
+    pregunta: "La relación entre sol y luz es como la relación entre:",
+    opciones: [
+      "Agua y sed",
+      "Luna y noche",
+      "Fuego y calor",
+      "Tierra y plantas",
+    ],
+    correcta: 2,
+  },
+  {
+    pregunta: "Si correr es a cansancio, entonces estudiar es a:",
+    opciones: ["Examen", "Biblioteca", "Aprendizaje", "Profesor"],
+    correcta: 2,
+  },
+];
 
-const LE: React.FC<LEProps> = ({ volverAlMenu }) => {
-  // Estados del juego
+function JuegoLectura() {
+  const [preguntasAleatorias, setPreguntasAleatorias] = useState([
+    ...ejercicios,
+  ]);
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
   const [mensaje, setMensaje] = useState("");
   const [juegoTerminado, setJuegoTerminado] = useState(false);
-  const [tiempoRestante, setTiempoRestante] = useState(10); // TIEMPO_MAXIMO
-
-  const preguntas = [
-    {
-      pregunta: "Verde es a hierba como amarillo es a:",
-      opciones: ["Papel", "Plátano", "Árbol", "Libro"],
-      correcta: 1,
-    },
-    {
-      pregunta: "Arena es a vidrio como:",
-      opciones: [
-        "Algodón a tela",
-        "Miel a abeja",
-        "Ácido a limón",
-        "Página a libro",
-      ],
-      correcta: 0,
-    },
-    {
-      pregunta: "Ahorro es a gasto como:",
-      opciones: [
-        "Arrogante a soberbio",
-        "Terso a suave",
-        "Compra a venta",
-        "Romper a fracturar",
-      ],
-      correcta: 2,
-    },
-    {
-      pregunta:
-        "El hombre que no lee es como un _____ que la corriente de la ignorancia arrastra al abismo del_____.",
-      opciones: [
-        "Letrado-vacío",
-        "Viajero-ahogo",
-        "Náufrago-frasco",
-        "Asilado-pesar",
-      ],
-      correcta: 2,
-    },
-    {
-      pregunta:
-        "El moderno microscopio ha revelado una sorprendente_____ de estructuras y _____ de las células.",
-      opciones: [
-        "Forma-mutaciones",
-        "Cantidad-semejanzas",
-        "Variedad-funciones",
-        "Definición-multiplicidades",
-      ],
-      correcta: 2,
-    },
-    {
-      pregunta:
-        "El Enigma del Relojero: En un rincón oscuro de la ciudad, el Sr. Aldebarán, un experto relojero, recibe un reloj detenido con un tic-tac melancólico. Repararlo será un reto supremo, lleno de misterios y significados ocultos, que lo llevará a buscar la armonía temporal.",
-      opciones: [
-        "La causa del tic-tac melancólico del reloj y cómo restaurarlo a su ritmo normal",
-        "El origen del reloj y la identidad de su dueño original",
-        "El significado de los símbolos y grabados que adornan el reloj",
-        "La clave para viajar en el tiempo a través del uso del reloj",
-      ],
-      correcta: 0,
-    },
-    {
-      pregunta:
-        "La Maraña de las Estrellas: En el vasto cosmos, las estrellas tejen historias interconectadas. Cada luz y su titilar plantean preguntas sobre el universo. Los astrónomos exploran estos enigmas, buscando comprender la inmensidad del espacio.",
-      opciones: [
-        "La dedicación de los astrónomos en su búsqueda del conocimiento",
-        "La vastedad y el misterio del cosmos que inspiran asombro",
-        "La interconexión de todas las cosas en el universo",
-        "La belleza y fragilidad de las estrellas",
-      ],
-      correcta: 1,
-    },
-    {
-      pregunta:
-        "El Éxodo de los Arlequines: Bajo la luz de la luna, los arlequines bailan melodías ancestrales, guiándose hacia un reino oculto donde los sueños y la realidad convergen, deteniendo el tiempo.",
-      opciones: [
-        "Un bosquejo secreto en las profundidades del bosque",
-        "Un gran baile de máscaras",
-        "Un reino oculto donde el tiempo se detiene y los sueños se entrelazan",
-        "Una ciudad olvidada enterrada bajo la tierra",
-      ],
-      correcta: 2,
-    },
-    {
-      pregunta: "Bisturí es a cirujano como:",
-      opciones: [
-        "Foco a alumbrado",
-        "Martillo a carpintero",
-        "Estola a sacerdote",
-        "Mineral a minero",
-      ],
-      correcta: 1,
-    },
-    {
-      pregunta: "Lima es a Perú como:",
-      opciones: [
-        "Ciudad a país",
-        "Chile a Santiago",
-        "Madrid a España",
-        "España a Madrid",
-      ],
-      correcta: 2,
-    },
-    {
-      pregunta: "Vaso es a copa como agua a:",
-      opciones: ["Jarabe", "Líquido", "Vino", "Vaso"],
-      correcta: 1,
-    },
-    {
-      pregunta: "Alto es a deporte como bajo es a:",
-      opciones: ["Natación", "Inactividad", "Actividad", "Tranquilidad"],
-      correcta: 1,
-    },
-    {
-      pregunta: "Mucho es a poco como:",
-      opciones: [
-        "Cuaderno a libreta",
-        "Suficiente a bastante",
-        "Oriente a occidente",
-        "Harina a pastel",
-      ],
-      correcta: 1,
-    },
-    {
-      pregunta:
-        "La Ciudad Invisible: Cuenta la leyenda que en un punto lejano del horizonte se oculta una ciudad invisible, revelada solo a quienes poseen un corazón puro. La ciudad es un reflejo de los sueños más profundos de quienes la encuentran, construida con luz y esperanza.",
-      opciones: [
-        "Un lugar de redención para los perdidos",
-        "Un castillo de cristal lleno de secretos",
-        "Los sueños y aspiraciones más puros del ser humano",
-        "Una ciudad construida por un pasado olvidado",
-      ],
-      correcta: 2,
-    },
-    {
-      pregunta:
-        "El Guardián del Faro: En una isla aislada, un viejo farero mantiene viva la luz que guía a los barcos. Aunque la tecnología ha avanzado, el guardián cree que su labor es crucial, pues no es solo la luz la que guía, sino la fe que infunde en los navegantes.",
-      opciones: [
-        "La tradición frente al progreso tecnológico",
-        "La importancia de la esperanza y la fe en tiempos difíciles",
-        "La resistencia a los cambios modernos",
-        "La conexión entre lo humano y lo mecánico",
-      ],
-      correcta: 1,
-    },
-    {
-      pregunta:
-        "El Jardín Eterno: En un valle oculto, un jardín florece en toda época del año. Quienes lo visitan sienten una paz indescriptible, como si las flores capturaran y reflejaran los anhelos de sus visitantes, creando un paraíso único para cada persona.",
-      opciones: [
-        "Sus flores cambian según la temporada",
-        "Solo florece para quienes tienen un propósito claro",
-        "Refleja los deseos y emociones más profundos de quienes lo visitan",
-        "Está cuidado por seres mágicos que lo preservan",
-      ],
-      correcta: 2,
-    },
-  ];
-
-  const mezclarPreguntas = () => preguntas.sort(() => Math.random() - 0.5);
-
-  const [preguntasAleatorias, setPreguntasAleatorias] = useState(
-    mezclarPreguntas()
-  );
-
-  const preguntaActual = preguntasAleatorias[indiceActual];
+  const [tiempoRestante, setTiempoRestante] = useState(10);
+  const [vidas, setVidas] = useState(3);
 
   useEffect(() => {
-    let intervalo: ReturnType<typeof setInterval>;
-    if (!juegoTerminado) {
-      intervalo = setInterval(() => {
-        setTiempoRestante((prev) => {
-          if (prev > 0) return prev - 1;
-          clearInterval(intervalo);
-          setJuegoTerminado(true);
-          setMensaje("¡Se acabó el tiempo! Juego terminado.");
-          return 0;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(intervalo);
-  }, [juegoTerminado]);
+    const temporizador = setInterval(() => {
+      if (tiempoRestante > 0) {
+        setTiempoRestante((prev) => prev - 1);
+      } else {
+        perderVida("Tiempo agotado");
+      }
+    }, 1000);
+    return () => clearInterval(temporizador);
+  }, [tiempoRestante]);
 
-  const manejarRespuesta = (index: number) => {
-    if (juegoTerminado) return;
-
-    if (index === preguntaActual.correcta) {
-      setMarcador(marcador + 1);
-      setMensaje("¡Correcto!");
+  const perderVida = (razon: string) => {
+    if (vidas > 1) {
+      setVidas((prev) => prev - 1);
+      setMensaje(`${razon}. Pierdes una vida.`);
       setTimeout(() => {
         setMensaje("");
-        if (indiceActual < preguntasAleatorias.length - 1) {
-          setIndiceActual(indiceActual + 1);
-          setTiempoRestante(10); // Reiniciar el tiempo
-        } else {
-          setJuegoTerminado(true);
-        }
+        setIndiceActual((prev) => prev + 1);
+        setTiempoRestante(10);
       }, 1000);
     } else {
-      setMensaje("Respuesta incorrecta. Juego terminado.");
+      setVidas(0);
+      setMensaje("¡Juego terminado! Sin vidas.");
       setJuegoTerminado(true);
     }
   };
 
+  const manejarRespuesta = (index: number) => {
+    const preguntaActual = preguntasAleatorias[indiceActual];
+    if (index === preguntaActual.correcta) {
+      setMarcador((prev) => prev + 1);
+      setMensaje("¡Correcto!");
+      setTimeout(() => {
+        setMensaje("");
+        if (indiceActual + 1 < preguntasAleatorias.length) {
+          setIndiceActual((prev) => prev + 1);
+          setTiempoRestante(10);
+        } else {
+          setMensaje("¡Juego terminado!");
+          setJuegoTerminado(true);
+        }
+      }, 1000);
+    } else {
+      perderVida("Incorrecto");
+    }
+  };
+
   const reiniciarJuego = () => {
-    setPreguntasAleatorias(mezclarPreguntas());
+    setPreguntasAleatorias([...ejercicios]);
     setIndiceActual(0);
     setMarcador(0);
     setMensaje("");
     setJuegoTerminado(false);
-    setTiempoRestante(10); // Reiniciar tiempo
+    setTiempoRestante(10);
+    setVidas(3);
   };
 
   return (
-    <div className="bg-gradient-to-r from-verdeborder to-verde h-[100vh] flex flex-col justify-center items-center text-white p-6">
-      <h1 className="text-4xl font-CreamBeige text-black mb-6 font-cursive">
-        Lectura
-      </h1>
-
-      <div className="w-full bg-verdeborder h-6 rounded-md overflow-hidden border-4 border-verdehover mb-6">
-        <div
-          className="h-full bg-verde transition-all duration-1000 ease-linear"
-          style={{ width: `${(tiempoRestante / 10) * 100}%` }}
-        ></div>
-      </div>
-
-      {juegoTerminado ? (
-        <div className="text-center text-white">
-          <h2 className="text-3xl mb-4">Puntuación final: {marcador}</h2>
-          <div className="flex justify-center gap-4">
-            <button
-              className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl"
-              onClick={reiniciarJuego}
-            >
-              Reiniciar Juego
-            </button>
-
-            <Link to="/Menu">
-              <button className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl">
-                Volver al Menú
-              </button>
-            </Link>
-          </div>
-        </div>
-      ) : (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white p-4">
+      <h1 className="text-3xl font-bold mb-6">Juego de Lectura</h1>
+      {!juegoTerminado ? (
         <>
-          <div className="text-center">
-            <h2 className="text-2xl font-sans font-semibold text-black mb-6 bg-white p-6 rounded-lg shadow-lg font-sans border-8 border-verdeborder">
-              {preguntaActual.pregunta}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {preguntaActual.opciones.map((opcion, index) => (
+          <p className="text-xl mb-4">Tiempo restante: {tiempoRestante}s</p>
+          <p className="text-xl mb-4">Vidas restantes: {vidas}</p>
+          <p className="text-lg mb-4">
+            {preguntasAleatorias[indiceActual].pregunta}
+          </p>
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            {preguntasAleatorias[indiceActual].opciones.map((opcion, index) => (
               <button
                 key={index}
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-800 transition duration-300"
                 onClick={() => manejarRespuesta(index)}
-                className="bg-white font-sans font-semibold text-black py-3 rounded-lg hover:bg-verdehover transition border-4 border-verdeborder"
               >
                 {opcion}
               </button>
             ))}
           </div>
-
-          <div className="text-center mt-4 text-xl font-CreamBeige text-black">
-            {mensaje}
-          </div>
+          <p className="text-yellow-400">{mensaje}</p>
+          <p className="mt-4">Marcador: {marcador}</p>
         </>
+      ) : (
+        <div className="text-center">
+          <h2 className="text-2xl mb-4">Juego Terminado</h2>
+          <p className="mb-4">Puntaje final: {marcador}</p>
+          <button
+            className="bg-green-600 px-4 py-2 rounded hover:bg-green-800 transition duration-300"
+            onClick={reiniciarJuego}
+          >
+            Reiniciar Juego
+          </button>
+        </div>
       )}
     </div>
   );
-};
+}
 
-export default LE;
+export default JuegoLectura;

@@ -3,7 +3,7 @@
   top: 0; /* Posición en la parte superior */
   left: 0;
   right: 0;
-  background-color: #181818; /* Color de fondo */
+  background-color: rgba(0, 0, 0, 0.4); /* Color de fondo */
   color: white; /* Color del texto */
   display: flex;
   align-items: center;
@@ -36,11 +36,14 @@
   padding-right: 40px;
   padding-left: 40px;
   font-family: CreamBeige;
+  transition: 0.5s;
 }
 
 .btn:hover {
   color: aliceblue;
   background: #9b32ff;
+  padding-right: 45px;
+  padding-left: 45px;
 }
 
 .enlace {
@@ -57,7 +60,6 @@
 .enlace:hover {
   color: #712cdf;
   border-bottom: #712cdf;
-  background-color: #7e7e7e;
   border-radius: 10px;
   border-bottom: #712cdf;
   border-bottom: 5px;

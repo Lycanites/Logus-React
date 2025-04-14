@@ -2,3 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fondo multicolor animado */
+.bg-animated-gradient {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #5ee7df, #b490ca);
+  background-size: 800% 800%;
+  animation: gradientBG 20s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Efecto neón para los botones */
+.neon-btn {
+  box-shadow: 0 0 10px #fff, 0 0 20px #ff6ec4, 0 0 30px #7873f5,
+    0 0 40px #5ee7df;
+  transition: all 0.3s ease;
+}
+
+.neon-btn:hover {
+  box-shadow: 0 0 15px #fff, 0 0 25px #ff6ec4, 0 0 35px #7873f5,
+    0 0 45px #5ee7df;
+  transform: scale(1.05);
+}
+/* Fondo animado multicolor */
+.bg-animated-gradient {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #5ee7df, #b490ca);
+  background-size: 800% 800%;
+  animation: gradientBG 20s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Botón neón rosa */
+.neon-btn-rosa {
+  box-shadow: 0 0 10px #ff6ec4, 0 0 20px #ff6ec4, 0 0 30px #ff6ec4;
+  transition: all 0.3s ease;
+}
+.neon-btn-rosa:hover {
+  box-shadow: 0 0 15px #ff99e5, 0 0 25px #ff6ec4, 0 0 35px #ff6ec4;
+  transform: scale(1.05);
+}
+
+/* Botón neón amarillo */
+.neon-btn-amarillo {
+  box-shadow: 0 0 10px #ffe066, 0 0 20px #ffe066, 0 0 30px #ffe066;
+  transition: all 0.3s ease;
+}
+.neon-btn-amarillo:hover {
+  box-shadow: 0 0 15px #fff27c, 0 0 25px #ffe066, 0 0 35px #ffe066;
+  transform: scale(1.05);
+}
+
+/* Botón neón verde */
+.neon-btn-verde {
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+  transition: all 0.3s ease;
+}
+.neon-btn-verde:hover {
+  box-shadow: 0 0 15px #5effe2, 0 0 25px #00ffcc, 0 0 35px #00ffcc;
+  transform: scale(1.05);
+}
