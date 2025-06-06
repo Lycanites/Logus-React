@@ -13,9 +13,9 @@ const Menu = () => {
       name: "Lectura",
       image: MiniLectura,
       to: "/Lectura",
-      bgColor: "bg-green-400",
-      hoverColor: "hover:bg-green-500",
-      borderColor: "border-green-600",
+      bgColor: "bg-yellow-400",
+      hoverColor: "hover:bg-yellow-500",
+      borderColor: "border-yellow-600",
     },
     {
       id: "analisis",
@@ -49,9 +49,9 @@ const Menu = () => {
       name: "Cultura",
       image: MiniCultura, // Asumiendo que estás usando la misma imagen temporalmente
       to: "/Cultura", // Asumiendo que tendrías una ruta para Cultura
-      bgColor: "bg-purple-500",
-      hoverColor: "hover:bg-purple-600",
-      borderColor: "border-purple-700",
+      bgColor: "bg-gray-500",
+      hoverColor: "hover:bg-gray-600",
+      borderColor: "border-gray-700",
     },
   ];
 
@@ -65,14 +65,14 @@ const Menu = () => {
           </button>
         </Link>
 
-        <div className="flex items-center space-x-2 bg-amber-900/80 text-white px-4 py-2 rounded-lg">
+        {/* <div className="flex items-center space-x-2 bg-amber-900/80 text-white px-4 py-2 rounded-lg">
           <button className="font-bold text-xl">−</button>
           <span className="mx-2">80%</span>
           <button className="font-bold text-xl">+</button>
           <button className="ml-4 px-3 py-1 bg-amber-700 hover:bg-amber-800 rounded">
             Reset
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Main content */}

@@ -93,7 +93,7 @@ function JuegoLectura() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-yellow-500 text-white p-4">
       <h1 className="text-3xl font-bold mb-6">Juego de Lectura</h1>
       {!juegoTerminado ? (
         <>
@@ -106,7 +106,7 @@ function JuegoLectura() {
             {preguntasAleatorias[indiceActual].opciones.map((opcion, index) => (
               <button
                 key={index}
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-800 transition duration-300"
+                className="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-800 transition duration-300"
                 onClick={() => manejarRespuesta(index)}
               >
                 {opcion}
