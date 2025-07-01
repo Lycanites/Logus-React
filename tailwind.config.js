@@ -40,6 +40,15 @@ module.exports = {
         amarilloborder: "#bdae48",
         volverlectura: "#B3FF8A",
         volverlecturaborde: "#6FC94E",
+
+        //Memoria
+        C1: "#db419a",
+        C2: "#ae0e6b",
+        C3: "#580a37",
+        //Logica
+        //Lectura
+        //Analisis
+        //Cultura
       },
 
       backgroundImage: {
