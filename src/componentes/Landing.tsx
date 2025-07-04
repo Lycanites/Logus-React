@@ -77,7 +77,7 @@ const LandingPage: React.FC = () => {
 
       {/* Nuevo */}
       <section>
-        <div className="h-[90vh] bg-green-700 flex items-center justify-end p-10">
+        <div className="h-[100vh] bg-gray-700 flex items-center justify-end p-10">
           <div>
             <img src={Cultura} alt="Cultura_img" />
           </div>
