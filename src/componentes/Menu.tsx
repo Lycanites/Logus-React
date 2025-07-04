@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MiniLectura from "../assets/img/Lectura-rbg.png";
+import MiniLectura from "../assets/img/Lectura.png";
 import MiniAnalisis from "../assets/img/MiniAnalisis.png";
 import MiniMemoria from "../assets/img/MiniMemoria.png";
-import MiniLogica from "../assets/img/MiniLogica.png";
-import MiniCultura from "../assets/img/MiniCultura.jpg";
+import MiniLogica from "../assets/img/Lógica.png";
+import MiniCultura from "../assets/img/Cultura.png";
 
 const Menu = () => {
   const categories = [
@@ -40,13 +40,22 @@ const Menu = () => {
       name: "Lógica",
       image: MiniLogica,
       to: "/Logica",
-      bgColor: "bg-purple-500",
-      hoverColor: "hover:bg-purple-600",
-      borderColor: "border-purple-700",
+      bgColor: "bg-orange-300",
+      hoverColor: "hover:bg-orange-700",
+      borderColor: "border-orange-800",
     },
     {
       id: "cultura",
       name: "Cultura",
+      image: MiniCultura, // Asumiendo que estás usando la misma imagen temporalmente
+      to: "/Cultura", // Asumiendo que tendrías una ruta para Cultura
+      bgColor: "bg-green-300",
+      hoverColor: "hover:bg-green-400",
+      borderColor: "border-green-600",
+    },
+    {
+      id: "cultura",
+      name: "Coming soon",
       image: MiniCultura, // Asumiendo que estás usando la misma imagen temporalmente
       to: "/Cultura", // Asumiendo que tendrías una ruta para Cultura
       bgColor: "bg-gray-500",

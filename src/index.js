@@ -13,6 +13,7 @@ import Menu from "./componentes/Menu.tsx";
 import Configuracion from "./componentes/Configuracion.tsx";
 import Perfil from "./componentes/Perfil.tsx";
 import MainMenu from "./componentes/MainMenu.tsx";
+import LandingPage from "./componentes/Landing";
 
 import Lectura from "./Areas/Lectura.tsx";
 import Logica from "./Areas/Logica.tsx";
@@ -33,7 +34,6 @@ import Carousel from "./componentes/Carousel.tsx";
 import Modal from "./componentes/Modal.tsx";
 import Soporte from "./componentes/Soporte";
 
-import Multiplayer from "./componentes/Multiplayer.tsx";
 import { SoundProvider } from "./context/SoundContext.tsx";
 
 const router = createBrowserRouter([

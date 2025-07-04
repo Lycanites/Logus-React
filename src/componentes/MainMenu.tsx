@@ -5,7 +5,6 @@ import "./MainMenu.css";
 import Modal from "./Modal";
 import SoundManager from "./Configuracion";
 import perfilIcon from "../assets/img/Perfil.png"; // Asegúrate de que la imagen esté en la ruta correcta
-import tiendaIcon from "../assets/img/Tienda.png"; // Asegúrate de que la imagen esté en la ruta correcta
 
 function POPUP() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -58,9 +57,9 @@ const Menu = () => {
             </button>
           </Link>
 
-          <Link to="/Carousel">
+          <Link to="/">
             <button className="neon-btn-amarillo px-16 py-4 bg-amarillo text-2xl font-semibold text-rosatxt rounded-3xl hover:bg-rosahover transition-colors border-rosaborder border-4">
-              Tienda
+              Volver
             </button>
           </Link>
         </div>

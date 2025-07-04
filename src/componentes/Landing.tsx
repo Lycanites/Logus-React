@@ -3,6 +3,12 @@ import Imagenes from "../assets/img/Imagenes";
 import "./Landing.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import * as FaIcons from "react-icons/fa";
+import Pinky from "../assets/img/Pinky_(solo).jpg";
+import Sunny from "../assets/img/Sunny_(solo).jpg";
+import Cultura from "../assets/img/Cultura.png";
 
 // Definición de la interfaz para las tarjetas
 interface CardData {
@@ -13,13 +19,12 @@ interface CardData {
 }
 
 const LandingPage: React.FC = () => {
-  const [activeCard, setActiveCard] = useState<number | null>(null);
   const cardsData: CardData[] = [
     {
       image: Imagenes.img2,
       title: "Lectura",
       text: "¿Problemas para escribir una oración, para saber el significado de una palabra que oíste o intentando entender un texto importante? Esta área se dedica a la presentación de nuevas palabras, aumentando el vocabulario; a mejorar la ortografía, mostrando las maneras correctas de escribir y expresarse; y a retener información vital de un texto, mejorando la comprensión lectora.",
-      color: "verde",
+      color: "bg-C1",
     },
     {
       image: Imagenes.img1,
@@ -43,13 +48,16 @@ const LandingPage: React.FC = () => {
       image: Imagenes.img5,
       title: "Cultura",
       text: "¿Te cuesta recordar las cosas, necesitas repetirte una y otra vez lo que, se supone, debes memorizar o simplemente quieres ejercitar tus recuerdos para nunca olvidarte de nada? Esta área te mantiene bajo la presión necesaria para que practiques lo que acabas de aprender, te impida olvidar a corto plazo y permanecer atento y consciente de tu entorno en todo momento.",
-      color: "bg-yellow-500",
+      color: "bg-C1",
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true }); // solo se anima una vez
+
   return (
     <>
-      {/* Video de presentación */}
+      {/* Video de presentación queda para una proxima actualizacion
       <section className="relative h-[90vh] flex justify-center items-center">
         <video
           autoPlay
@@ -65,104 +73,175 @@ const LandingPage: React.FC = () => {
             Desafía tu mente con juegos estimulantes.
           </p>
         </div>
+      </section> */}
+
+      {/* Nuevo */}
+      <section>
+        <div className="h-[90vh] bg-green-700 flex items-center justify-end p-10">
+          <div>
+            <img src={Cultura} alt="Cultura_img" />
+          </div>
+          <motion.div
+            className="text-right"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <p className="text-4xl font-bold text-yellow-400 font-CreamBeige">
+              ¡NUEVO!
+            </p>
+            <h2 className="text-3xl font-semibold text-white mt-4">
+              Área de Cultura desbloqueada
+            </h2>
+            <p className="text-white mt-2 max-w-md">
+              Explora temas fundamentales del conocimiento general, mejora tu
+              capacidad para reconocer el contexto histórico, geográfico, social
+              y científico que te rodea. ¿Qué tanto sabes del mundo en el que
+              vives?
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Carrusel de imágenes */}
       <section className="h-[100vh] flex justify-center items-center">
-        <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
+        <Carousel
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          showStatus={false}
+          showArrows={true}
+          interval={6000}
+        >
           {cardsData.map((card, index) => (
-            <div key={index}>
+            <div key={index} className="relative h-[100vh]">
               <img
                 src={card.image}
                 alt={card.title}
-                className="h-[100vh] object-cover w-full"
+                className="h-full object-cover w-full"
               />
-              <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-0 text-white px-4 py-2 rounded-lg text-6xl font-semibold font-CreamBeige">
-                {card.title}
-              </div>
+
+              {/* Texto animado dentro del carrusel */}
+              <motion.div
+                className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white px-8 py-6 rounded-xl max-w-2xl text-center"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <h3 className="text-4xl font-semibold mb-2 font-CreamBeige">
+                  {card.title}
+                </h3>
+                <p className="text-base">{card.text}</p>
+              </motion.div>
             </div>
           ))}
         </Carousel>
       </section>
 
-      {/* Tarjetas de información */}
-      <section className="flex flex-wrap justify-center p-5 gap-4">
-        {cardsData.map((card, index) => (
-          <div
-            key={index}
-            className={`rounded-lg shadow-md m-3 w-full sm:w-80 md:w-80 text-center overflow-hidden transition-transform duration-300 ${card.color} text-white`}
-            onClick={() => setActiveCard(activeCard === index ? null : index)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                setActiveCard(activeCard === index ? null : index);
-              }
-            }}
-            aria-expanded={activeCard === index}
-            aria-label={card.title}
+      {/* 💥 Sección motivacional #1 */}
+      <section>
+        <div className="h-[80vh] bg-gradient-to-r from-yellow-400 to-pink-800 flex items-center justify-between px-10">
+          <img
+            src={Sunny}
+            alt="Personaje 2"
+            className="w-1/4 hidden md:block"
+          />
+
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1 }}
+            className="text-center max-w-2xl text-white"
           >
-            <img
-              src={card.image}
-              alt={card.title}
-              className="w-full h-40 object-cover"
-            />
-            <h3 className="my-2 text-lg font-bold">{card.title}</h3>
-            {activeCard === index && <p className="px-2 pb-2">{card.text}</p>}
-          </div>
-        ))}
+            <h1 className="text-8xl font-bold mb-4">¡APRENDER</h1>
+            <h2 className="text-2xl ">nunca fue tan épico!</h2>
+            <p className="text-lg">
+              En Logus, cada partida te transforma. Reta tu mente, desbloquea
+              mundos y únete a la aventura.
+            </p>
+          </motion.div>
+          <img
+            src={Pinky}
+            alt="Personaje 2"
+            className="w-1/4 hidden md:block"
+          />
+        </div>
       </section>
 
+      {/* 💡 Sección motivacional #2 */}
       <section>
-        <div className="h-[80vh] bg-slate-500">
-          <h1 className="font-4xl">Nuestra Mision</h1>
-          <p></p>
+        <div className="h-[80vh] bg-gradient-to-r from-yellow-400 to-red-500 flex flex-col justify-center items-center text-center p-8">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1 }}
+            className="text-center max-w-2xl text-white"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              ¡Activa tu mente!
+            </h2>
+            <p className="text-gray-800 text-lg max-w-xl">
+              No es solo un juego... es una aventura para tu cerebro. ¿Estás
+              listo para resolver acertijos, memorizar pistas y superar tus
+              propios límites? ¡Logus te espera!
+            </p>
+            <button className="mt-6 px-6 py-3 bg-gray-900 text-white rounded-full text-lg hover:bg-gray-800 transition">
+              Jugar ahora
+            </button>
+          </motion.div>
         </div>
       </section>
-      <section>
-        <div className="h-[80vh] bg-slate-600">
-          <h1>Nuestra Vision</h1>
-          <p></p>
-        </div>
-      </section>
-      <section>
-        <div className="h-[80vh] bg-slate-700">
-          <p></p>
-        </div>
-      </section>
-      <section></section>
-      <section></section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white p-5 mt-10">
-        <div className="container mx-auto text-center">
-          <h2 className="text-lg mb-2">Síguenos en nuestras redes sociales</h2>
-          <div className="flex justify-center space-x-4">
+      <footer className="bg-gray-900 text-white py-10 mt-10">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-xl font-semibold mb-4">
+            Síguenos en nuestras redes sociales
+          </h2>
+          <div className="flex justify-center space-x-6 mb-6 text-2xl">
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
+              className="hover:text-blue-400 transition"
             >
-              Facebook
+              <FaIcons.FaFacebook />
             </a>
             <a
               href="https://x.com/Denko_SL"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
+              className="hover:text-blue-300 transition"
             >
-              Twitter
+              <FaIcons.FaTwitter />
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
+              className="hover:text-pink-400 transition"
             >
-              Instagram
+              <FaIcons.FaInstagram />
             </a>
           </div>
+
+          <div className="mt-4">
+            <a
+              href="/Denko"
+              className="inline-flex items-center text-sm hover:underline hover:text-gray-300"
+            >
+              <FaIcons.FaInfoCircle className="mr-2" /> Acerca de Denko
+            </a>
+          </div>
+
+          <p className="text-sm mt-6 text-gray-400">
+            © 2025 Denko Studios. Todos los derechos reservados.
+          </p>
         </div>
       </footer>
     </>

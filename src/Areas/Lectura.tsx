@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import MiniLectura from "../assets/img/Lectura-rbg.png";
+import MiniLectura from "../assets/img/Lectura.png";
 
 const Lectura = () => {
   const [isRotating, setIsRotating] = useState(true);
