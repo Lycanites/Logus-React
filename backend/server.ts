@@ -1,38 +1,48 @@
 import express from "express";
 import cors from "cors";
-import mysql from "mysql2/promise";
 import dotenv from "dotenv";
+import areasRouter from "./routes/areas";
 
-// 1. Cargar variables de entorno
 dotenv.config();
 
-// 2. Crear la app de Express
 const app = express();
-app.use(cors()); // 3. Habilitar CORS para que React pueda acceder
-app.use(express.json()); // 4. Permitir enviar/recibir JSON
-
 const PORT = process.env.PORT || 3001;
 
-// 5. Conectarse a la base de datos MySQL
-const db = await mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-});
+// Configuración CORS para permitir localhost:3000 y también el dominio del frontend en producción
+const allowedOrigins = ["http://localhost:3000", "https://logus.site"];
 
-// 6. Ruta simple para probar si funciona
-app.get("/usuarios", async (req, res) => {
-  try {
-    const [rows] = await db.execute("SELECT * FROM usuarios");
-    res.json(rows);
-  } catch (error) {
-    console.error("Error al obtener usuarios:", error);
-    res.status(500).send("Error del servidor");
-  }
-});
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Permitir requests sin origin (como herramientas tipo Postman)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = `La política CORS no permite acceso desde el origen: ${origin}`;
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
-// 7. Iniciar el servidor
+// Middleware para parsear JSON
+app.use(express.json());
+
+// Rutas
+app.use("/api/areas", areasRouter);
+
+// Opciones para preflight requests (OPTIONS)
+app.options(
+  "*",
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
+
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
+  console.log(`Servidor backend corriendo en puerto ${PORT}`);
 });

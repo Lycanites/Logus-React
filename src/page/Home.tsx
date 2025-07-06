@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "../componentes/Navbar";
 import LandingPage from "../componentes/Landing";
-
+import PruebaAreas from "../componentes/PublicAreas";
 
 export default function Home() {
   return (
     <div>
-      <Navbar />
-      <LandingPage />
-      
+      <PruebaAreas />
+      {/* <Navbar />
+      <LandingPage /> */}
     </div>
   );
 }

@@ -2,94 +2,46 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 interface MEProps {
-  volverAlMenu: () => void; // Indica que volverAlMenu es una función que no recibe argumentos y no devuelve nada
+  volverAlMenu: () => void;
 }
 
+interface Pregunta {
+  id: number;
+  pregunta: string;
+  imagen: string;
+  opciones: string[];
+  correcta: number;
+}
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
+
 const ME: React.FC<MEProps> = ({ volverAlMenu }) => {
-  // Estados del juego
+  const [preguntas, setPreguntas] = useState<Pregunta[]>([]);
+  const [preguntasAleatorias, setPreguntasAleatorias] = useState<Pregunta[]>(
+    []
+  );
   const [indiceActual, setIndiceActual] = useState(0);
   const [marcador, setMarcador] = useState(0);
   const [mensaje, setMensaje] = useState("");
   const [juegoTerminado, setJuegoTerminado] = useState(false);
-  const [tiempoRestante, setTiempoRestante] = useState(10); // TIEMPO_MAXIMO
-  const [mostrandoImagen, setMostrandoImagen] = useState(true); // Nuevo estado para mostrar la imagen
-
-  const preguntas = [
-    {
-      pregunta:
-        "De acuerdo con las posiciones, ¿en qué número se encontraba la fresa?",
-      imagen: "/imagenes/m_ej1.png", // Ruta de la imagen
-      opciones: ["2", "9", "4", "8"],
-      correcta: 1,
-    },
-    {
-      pregunta:
-        "De acuerdo con las posiciones, ¿en qué número se encontraba la manzana?",
-      imagen: "/imagenes/m_ej2.png", // Ruta de la imagen
-      opciones: ["4", "3", "8", "6"],
-      correcta: 2,
-    },
-    {
-      pregunta:
-        "De acuerdo con las posiciones, ¿en qué número se encontraba el globo?",
-      imagen: "/imagenes/m_ej3.png", // Ruta de la imagen
-      opciones: ["7", "1", "3", "5"],
-      correcta: 0,
-    },
-    {
-      pregunta:
-        "De acuerdo con las posiciones, ¿en qué número se encontraba el oso?",
-      imagen: "/imagenes/m_ej5.png", // Ruta de la imagen
-      opciones: ["1", "4", "9", "6"],
-      correcta: 2,
-    },
-    {
-      pregunta:
-        "De acuerdo con las posiciones, ¿en qué número se encontraba el perro?",
-      imagen: "/imagenes/m_ej6.png", // Ruta de la imagen
-      opciones: ["9", "7", "4", "1"],
-      correcta: 1,
-    },
-    {
-      pregunta: "¿Qué objeto era pareja con la naranja?",
-      imagen: "/imagenes/m_ej7.png", // Ruta de la imagen
-      opciones: ["El auto", "El barco", "El camión", "La moto"],
-      correcta: 0,
-    },
-    {
-      pregunta: "¿Qué objeto era pareja con la pera?",
-      imagen: "/imagenes/m_ej8.png", // Ruta de la imagen
-      opciones: ["El barco", "El camión", "El avión", "La moto"],
-      correcta: 2,
-    },
-    {
-      pregunta: "¿Qué objeto era pareja con el gato?",
-      imagen: "/imagenes/m_ej9.png", // Ruta de la imagen
-      opciones: ["Un helado", "La pelota", "Un trébol", "La sombrilla"],
-      correcta: 2,
-    },
-    {
-      pregunta: "¿Qué objeto era pareja con la mariposa?",
-      imagen: "/imagenes/m_ej10.png", // Ruta de la imagen
-      opciones: ["El perro", "El león", "La pelota", "El girasol"],
-      correcta: 3,
-    },
-    {
-      pregunta:
-        "De acuerdo con las posiciones, ¿en qué número se encontraba el barco?",
-      imagen: "/imagenes/m_ej4.png", // Ruta de la imagen
-      opciones: ["6", "2", "9", "7"],
-      correcta: 3,
-    },
-  ];
-
-  const mezclarPreguntas = () => preguntas.sort(() => Math.random() - 0.5);
-
-  const [preguntasAleatorias, setPreguntasAleatorias] = useState(
-    mezclarPreguntas()
-  );
+  const [tiempoRestante, setTiempoRestante] = useState(10);
+  const [mostrandoImagen, setMostrandoImagen] = useState(true);
 
   const preguntaActual = preguntasAleatorias[indiceActual];
+
+  // 🚀 Obtener preguntas desde el backend
+  useEffect(() => {
+    fetch(`${API_URL}/preguntas/area/3`) // Memoria
+      .then((res) => res.json())
+      .then((data) => {
+        const mezcladas = data.sort(() => Math.random() - 0.5);
+        setPreguntas(mezcladas);
+        setPreguntasAleatorias(mezcladas);
+      })
+      .catch((err) => {
+        console.error("Error al cargar preguntas:", err);
+      });
+  }, []);
 
   useEffect(() => {
     let intervalo: ReturnType<typeof setInterval>;
@@ -111,12 +63,12 @@ const ME: React.FC<MEProps> = ({ volverAlMenu }) => {
     if (mostrandoImagen) {
       setTimeout(() => {
         setMostrandoImagen(false);
-      }, 5000); // Después de 5 segundos, muestra la pregunta
+      }, 5000);
     }
   }, [mostrandoImagen]);
 
   const manejarRespuesta = (index: number) => {
-    if (juegoTerminado) return;
+    if (juegoTerminado || !preguntaActual) return;
 
     if (index === preguntaActual.correcta) {
       setMarcador(marcador + 1);
@@ -125,8 +77,8 @@ const ME: React.FC<MEProps> = ({ volverAlMenu }) => {
         setMensaje("");
         if (indiceActual < preguntasAleatorias.length - 1) {
           setIndiceActual(indiceActual + 1);
-          setTiempoRestante(10); // Reiniciar el tiempo
-          setMostrandoImagen(true); // Mostrar nueva imagen
+          setTiempoRestante(10);
+          setMostrandoImagen(true);
         } else {
           setJuegoTerminado(true);
         }
@@ -138,14 +90,24 @@ const ME: React.FC<MEProps> = ({ volverAlMenu }) => {
   };
 
   const reiniciarJuego = () => {
-    setPreguntasAleatorias(mezclarPreguntas());
+    const nuevas = preguntas.sort(() => Math.random() - 0.5);
+    setPreguntasAleatorias(nuevas);
     setIndiceActual(0);
     setMarcador(0);
     setMensaje("");
     setJuegoTerminado(false);
-    setTiempoRestante(10); // Reiniciar tiempo
-    setMostrandoImagen(true); // Mostrar imagen al reiniciar
+    setTiempoRestante(10);
+    setMostrandoImagen(true);
   };
+
+  // ⏳ Mostrar carga si no se han cargado preguntas
+  if (!preguntaActual) {
+    return (
+      <div className="text-white text-2xl text-center mt-10">
+        Cargando preguntas...
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gradient-to-r from-rosa to-rosahover h-[100vh] flex flex-col justify-center items-center text-white p-6">
@@ -170,7 +132,6 @@ const ME: React.FC<MEProps> = ({ volverAlMenu }) => {
             >
               Reiniciar Juego
             </button>
-
             <Link to="/Menu">
               <button className="px-12 py-2 bg-naranja text-xl font-semibold text-white rounded-3xl hover:bg-naranjahover border-4 border-naranjaborder transition-colors shadow-2xl">
                 Volver al Menú

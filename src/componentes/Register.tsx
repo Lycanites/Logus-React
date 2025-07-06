@@ -1,5 +1,8 @@
+// src/pages/Register.tsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001";
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
@@ -8,8 +11,7 @@ const Register: React.FC = () => {
   const [email, setEmail] = useState("");
   const [contrasena, setContrasena] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [rol, setRol] = useState("jugador"); // Puedes ocultar esto si no quieres que elijan
-  const [edad, setEdad] = useState<number>(0);
+  const [age, setAge] = useState<number>(0);
 
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -33,7 +35,7 @@ const Register: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/registro", {
+      const res = await fetch(`${API_URL}/api/auth/registro`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,8 +44,8 @@ const Register: React.FC = () => {
           username,
           email,
           contrasena,
-          rol,
-          age: edad,
+          age,
+          rol: "jugador", // Protegido también en el backend
         }),
       });
 
@@ -95,8 +97,8 @@ const Register: React.FC = () => {
           type="number"
           placeholder="Edad"
           className="w-full p-2 border border-gray-300 rounded mb-4"
-          value={edad}
-          onChange={(e) => setEdad(parseInt(e.target.value))}
+          value={age}
+          onChange={(e) => setAge(parseInt(e.target.value))}
           required
         />
 
@@ -117,16 +119,6 @@ const Register: React.FC = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-
-        {/* Campo para elegir rol si es necesario */}
-        <select
-          className="w-full p-2 border border-gray-300 rounded mb-4"
-          value={rol}
-          onChange={(e) => setRol(e.target.value)}
-        >
-          <option value="jugador">Jugador</option>
-          <option value="admin">Administrador</option>
-        </select>
 
         <button
           type="submit"
