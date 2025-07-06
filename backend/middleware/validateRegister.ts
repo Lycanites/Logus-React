@@ -1,24 +1,17 @@
-import { Request, Response, NextFunction } from "express";
+import { check, validationResult } from "express-validator";
 
-export const validateRegister = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  const { username, email, contrasena } = req.body;
-
-  if (!username || username.length < 3) {
-    return res.status(400).json({ message: "Nombre de usuario muy corto" });
-  }
-
-  const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-  if (!emailRegex.test(email)) {
-    return res.status(400).json({ message: "Email inválido" });
-  }
-
-  if (!contrasena || contrasena.length < 6) {
-    return res.status(400).json({ message: "Contraseña débil" });
-  }
-
-  next();
-};
+export const validateRegister = [
+  check("username")
+    .isLength({ min: 3 })
+    .withMessage("Username mínimo 3 caracteres"),
+  check("email").isEmail().withMessage("Email inválido"),
+  check("contrasena")
+    .isLength({ min: 6 })
+    .withMessage("Contraseña mínimo 6 caracteres"),
+  (req: Request, res: Response, next: NextFunction) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty())
+      return res.status(400).json({ errors: errors.array() });
+    next();
+  },
+];

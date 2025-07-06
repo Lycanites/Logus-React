@@ -2,7 +2,7 @@ import express from "express";
 import { loginUser, registerUser } from "../controllers/authController"; // Corrige si tu archivo se llama diferente
 import { validateRegister } from "../middleware/validateRegister";
 import { authenticateUser } from "../middleware/authMiddleware";
-import { authorizeAdmin } from "../middleware/adminMiddleware";
+import { authorizeAdmin } from "../middleware/roleMiddleware";
 
 const router = express.Router();
 

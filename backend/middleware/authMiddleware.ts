@@ -1,9 +1,11 @@
-import jwt from "jsonwebtoken";
+// middleware/authMiddleware.ts
 import { Request, Response, NextFunction } from "express";
+import jwt from "jsonwebtoken";
+
+const jwtSecret = process.env.JWT_SECRET || "secretkey";
 
 interface JwtPayload {
   id: number;
-  username: string;
   rol: string;
 }
 
@@ -15,22 +17,21 @@ declare global {
   }
 }
 
-export const authenticateUser = (
+export const authenticateToken = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   const authHeader = req.headers.authorization;
-  if (!authHeader?.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "Token no proporcionado" });
-  }
+  if (!authHeader) return res.status(401).json({ error: "Token requerido" });
 
   const token = authHeader.split(" ")[1];
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
-    req.user = decoded;
+  if (!token) return res.status(401).json({ error: "Token inválido" });
+
+  jwt.verify(token, jwtSecret, (err, decoded) => {
+    if (err)
+      return res.status(403).json({ error: "Token inválido o expirado" });
+    req.user = decoded as JwtPayload;
     next();
-  } catch {
-    return res.status(401).json({ message: "Token inválido o expirado" });
-  }
+  });
 };

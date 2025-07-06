@@ -1,8 +1,11 @@
 import express from "express";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import connection from "../database/db";
 
 const router = express.Router();
+
+//Ruta para hacer los Registros, FUNCIONA NO TOCAR
 
 router.post("/registro", async (req, res) => {
   try {
@@ -52,6 +55,56 @@ router.post("/registro", async (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: "Error en el servidor" });
   }
+});
+
+//Ruta para Login
+
+router.post("/login", (req, res) => {
+  const { email, contrasena } = req.body;
+
+  console.log("Datos recibidos:", email, contrasena); // ✅
+
+  if (!email || !contrasena) {
+    return res.status(400).json({ error: "Email y contraseña requeridos" });
+  }
+
+  const query = "SELECT * FROM usuarios WHERE email = ?";
+  connection.query(query, [email], async (err, results: any[]) => {
+    if (err) {
+      console.error("Error en query:", err); // ✅
+      return res.status(500).json({ error: "Error en el servidor" });
+    }
+
+    if (results.length === 0) {
+      console.warn("No se encontró el usuario con ese correo"); // ✅
+      return res.status(401).json({ error: "Credenciales incorrectas" });
+    }
+
+    const usuario = results[0];
+    const passwordMatch = await bcrypt.compare(contrasena, usuario.contrasena);
+
+    if (!passwordMatch) {
+      console.warn("Contraseña incorrecta"); // ✅
+      return res.status(401).json({ error: "Credenciales incorrectas" });
+    }
+
+    const token = jwt.sign(
+      {
+        id: usuario.id,
+        email: usuario.email,
+        username: usuario.username,
+        rol: usuario.rol,
+      },
+      process.env.JWT_SECRET as string,
+      { expiresIn: "2h" }
+    );
+
+    res.json({
+      message: "Inicio de sesión exitoso",
+      token,
+      rol: usuario.rol,
+    });
+  });
 });
 
 export default router;

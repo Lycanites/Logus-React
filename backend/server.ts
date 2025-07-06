@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import areasRouter from "./routes/areas";
 import authRouter from "./routes/auth"; // 👈 nuevo
+import userRouter from "./routes/user";
 
 dotenv.config();
 const app = express();
@@ -15,7 +16,6 @@ app.use(
     credentials: true, // Si vas a usar cookies
   })
 );
-
 app.use(express.json());
 
 // ✅ Tus rutas
@@ -26,6 +26,7 @@ app.use("/api/auth", authRouter);
 const allowedOrigins = ["http://localhost:3000", "https://logus.site"];
 
 app.use("/api/auth", authRouter); // 👈 nuevo
+app.use("/api/user", userRouter);
 
 app.use(
   cors({
