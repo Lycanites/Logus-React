@@ -2,14 +2,30 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import areasRouter from "./routes/areas";
+import authRouter from "./routes/auth"; // 👈 nuevo
 
 dotenv.config();
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// ⚠️ CORS debe ir antes de las rutas y después de dotenv
+app.use(
+  cors({
+    origin: "http://localhost:3000", // O puedes usar una lista si quieres varios orígenes
+    credentials: true, // Si vas a usar cookies
+  })
+);
+
+app.use(express.json());
+
+// ✅ Tus rutas
+app.use("/api/areas", areasRouter);
+app.use("/api/auth", authRouter);
+
 // Configuración CORS para permitir localhost:3000 y también el dominio del frontend en producción
 const allowedOrigins = ["http://localhost:3000", "https://logus.site"];
+
+app.use("/api/auth", authRouter); // 👈 nuevo
 
 app.use(
   cors({

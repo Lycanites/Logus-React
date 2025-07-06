@@ -6,9 +6,9 @@ import PruebaAreas from "../componentes/PublicAreas";
 export default function Home() {
   return (
     <div>
-      <PruebaAreas />
-      {/* <Navbar />
-      <LandingPage /> */}
+      {/* <PruebaAreas /> */}
+      <Navbar />
+      <LandingPage />
     </div>
   );
 }
