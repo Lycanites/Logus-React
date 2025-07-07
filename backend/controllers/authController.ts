@@ -21,7 +21,7 @@ export const registerUser = async (req: Request, res: Response) => {
     }
 
     const hashed = await hashPassword(contrasena);
-    const [result] = await db.query(
+    await db.query(
       "INSERT INTO usuarios (username, email, contrasena, age, rol) VALUES (?, ?, ?, ?, 'jugador')",
       [username, email, hashed, age]
     );
@@ -30,8 +30,8 @@ export const registerUser = async (req: Request, res: Response) => {
       .status(201)
       .json({ message: "Usuario registrado correctamente" });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Error del servidor" });
+    console.error("Error al registrar usuario:", err);
+    return res.status(500).json({ error: "Error del servidor" });
   }
 };
 
@@ -60,7 +60,14 @@ export const loginUser = async (req: Request, res: Response) => {
       expiresIn: "2h",
     });
 
-    res.status(200).json({
+    // 👉 Si deseas usar cookies con JWT (opcional):
+    // res.cookie("token", token, {
+    //   httpOnly: true,
+    //   secure: true, // true en producción con https
+    //   sameSite: "None",
+    // });
+
+    return res.status(200).json({
       message: "Login exitoso",
       token,
       usuario: {
@@ -70,7 +77,7 @@ export const loginUser = async (req: Request, res: Response) => {
       },
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Error del servidor" });
+    console.error("Error al iniciar sesión:", err);
+    return res.status(500).json({ error: "Error del servidor" });
   }
 };

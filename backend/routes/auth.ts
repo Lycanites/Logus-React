@@ -1,11 +1,11 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import connection from "../database/db";
+import { db } from "../database/db"; // Cambiado a db para consistencia
+import { promisify } from "util";
 
 const router = express.Router();
-
-//Ruta para hacer los Registros, FUNCIONA NO TOCAR
+const query = promisify(db.query).bind(db);
 
 router.post("/registro", async (req, res) => {
   try {
@@ -23,75 +23,58 @@ router.post("/registro", async (req, res) => {
         .json({ error: "La contraseña debe tener al menos 6 caracteres" });
     }
 
-    connection.query(
+    // Verificar usuario existente
+    const existingUsers: any[] = await query(
       "SELECT * FROM usuarios WHERE username = ? OR email = ?",
-      [username, email],
-      async (err, results: any[]) => {
-        if (err) return res.status(500).json({ error: err.message });
-
-        if (results.length > 0) {
-          return res
-            .status(400)
-            .json({ error: "El nombre de usuario o correo ya está en uso" });
-        }
-
-        const hashedPassword = await bcrypt.hash(contrasena, 10);
-
-        connection.query(
-          "INSERT INTO usuarios (username, email, contrasena, age, rol) VALUES (?, ?, ?, ?, 'jugador')",
-          [username, email, hashedPassword, age],
-          (insertErr) => {
-            if (insertErr) {
-              return res.status(500).json({ error: insertErr.message });
-            }
-
-            return res
-              .status(201)
-              .json({ message: "Cuenta creada correctamente" });
-          }
-        );
-      }
+      [username, email]
     );
+
+    if (existingUsers.length > 0) {
+      return res
+        .status(400)
+        .json({ error: "El nombre de usuario o correo ya está en uso" });
+    }
+
+    const hashedPassword = await bcrypt.hash(contrasena, 10);
+
+    await query(
+      "INSERT INTO usuarios (username, email, contrasena, age, rol) VALUES (?, ?, ?, ?, 'jugador')",
+      [username, email, hashedPassword, age]
+    );
+
+    return res.status(201).json({ message: "Cuenta creada correctamente" });
   } catch (error) {
+    console.error("Error en /registro:", error);
     return res.status(500).json({ error: "Error en el servidor" });
   }
 });
 
-//Ruta para Login
+router.post("/login", async (req, res) => {
+  try {
+    const { email, contrasena } = req.body;
 
-router.post("/login", (req, res) => {
-  const { email, contrasena } = req.body;
-
-  console.log("Datos recibidos:", email, contrasena); // ✅
-
-  if (!email || !contrasena) {
-    return res.status(400).json({ error: "Email y contraseña requeridos" });
-  }
-
-  const query = "SELECT * FROM usuarios WHERE email = ?";
-  connection.query(query, [email], async (err, results: any[]) => {
-    if (err) {
-      console.error("Error en query:", err); // ✅
-      return res.status(500).json({ error: "Error en el servidor" });
+    if (!email || !contrasena) {
+      return res.status(400).json({ error: "Email y contraseña requeridos" });
     }
 
-    if (results.length === 0) {
-      console.warn("No se encontró el usuario con ese correo"); // ✅
+    const users: any[] = await query("SELECT * FROM usuarios WHERE email = ?", [
+      email,
+    ]);
+
+    if (users.length === 0) {
       return res.status(401).json({ error: "Credenciales incorrectas" });
     }
 
-    const usuario = results[0];
-    const passwordMatch = await bcrypt.compare(contrasena, usuario.contrasena);
+    const usuario = users[0];
 
+    const passwordMatch = await bcrypt.compare(contrasena, usuario.contrasena);
     if (!passwordMatch) {
-      console.warn("Contraseña incorrecta"); // ✅
       return res.status(401).json({ error: "Credenciales incorrectas" });
     }
 
     const token = jwt.sign(
       {
         id: usuario.id,
-        email: usuario.email,
         username: usuario.username,
         rol: usuario.rol,
       },
@@ -99,12 +82,15 @@ router.post("/login", (req, res) => {
       { expiresIn: "2h" }
     );
 
-    res.json({
+    return res.json({
       message: "Inicio de sesión exitoso",
       token,
       rol: usuario.rol,
     });
-  });
+  } catch (error) {
+    console.error("Error en /login:", error);
+    return res.status(500).json({ error: "Error en el servidor" });
+  }
 });
 
 export default router;

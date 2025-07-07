@@ -1,4 +1,3 @@
-// routes/users.ts
 import express from "express";
 import connection from "../database/db";
 import bcrypt from "bcrypt";
@@ -8,15 +7,18 @@ import { authorizeRole } from "../middleware/roleMiddleware";
 
 const router = express.Router();
 
-// Obtener datos del usuario (solo él mismo o admin)
-router.get("/:id", authenticateToken, async (req, res) => {
-  const userId = parseInt(req.params.id);
-  const requester = req.user!;
+// Función para validar permiso (propio usuario o admin)
+const hasPermission = (requester: any, targetUserId: number) =>
+  requester.id === targetUserId || requester.rol === "admin";
 
-  // Solo puede consultar su propio usuario o admin
-  if (requester.id !== userId && requester.rol !== "admin") {
+// Obtener datos del usuario (solo él mismo o admin)
+router.get("/:id", authenticateToken, (req, res) => {
+  const userId = Number(req.params.id);
+  if (isNaN(userId)) return res.status(400).json({ error: "ID inválido" });
+
+  const requester = req.user!;
+  if (!hasPermission(requester, userId))
     return res.status(403).json({ error: "Permiso denegado" });
-  }
 
   connection.query(
     "SELECT id, username, age, email, rol, fecha_registro FROM usuarios WHERE id = ?",
@@ -24,11 +26,10 @@ router.get("/:id", authenticateToken, async (req, res) => {
     (err, results) => {
       if (err) return res.status(500).json({ error: err.message });
 
-      // Hacemos cast a RowDataPacket[] para que TS entienda que es un array
       const rows = results as RowDataPacket[];
-
       if (rows.length === 0)
         return res.status(404).json({ error: "Usuario no encontrado" });
+
       res.json(rows[0]);
     }
   );
@@ -36,27 +37,29 @@ router.get("/:id", authenticateToken, async (req, res) => {
 
 // Modificar datos del usuario (solo él mismo o admin)
 router.put("/:id", authenticateToken, async (req, res) => {
-  const userId = parseInt(req.params.id);
+  const userId = Number(req.params.id);
+  if (isNaN(userId)) return res.status(400).json({ error: "ID inválido" });
+
   const requester = req.user!;
-  const { username, email, age, contrasena } = req.body;
-
-  if (requester.id !== userId && requester.rol !== "admin") {
+  if (!hasPermission(requester, userId))
     return res.status(403).json({ error: "Permiso denegado" });
-  }
 
-  // Validaciones mínimas (puedes agregar más)
+  const { username, email, age, contrasena } = req.body;
   if (!username || !email) {
     return res.status(400).json({ error: "Username y email son requeridos" });
   }
 
-  // Si envía contraseña, la ciframos
-  const updateUser = async () => {
+  try {
     let hashedPassword: string | null = null;
     if (contrasena) {
       hashedPassword = await bcrypt.hash(contrasena, 10);
     }
 
-    const queryParams = [username, email, age || null];
+    const queryParams: (string | number | null)[] = [
+      username,
+      email,
+      age || null,
+    ];
     let sql = "UPDATE usuarios SET username = ?, email = ?, age = ?";
     if (hashedPassword) {
       sql += ", contrasena = ?";
@@ -69,19 +72,19 @@ router.put("/:id", authenticateToken, async (req, res) => {
       if (err) return res.status(500).json({ error: err.message });
       res.json({ message: "Usuario actualizado correctamente" });
     });
-  };
-
-  updateUser();
+  } catch (error) {
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
 });
 
 // Borrar usuario (solo él mismo o admin)
 router.delete("/:id", authenticateToken, (req, res) => {
-  const userId = parseInt(req.params.id);
-  const requester = req.user!;
+  const userId = Number(req.params.id);
+  if (isNaN(userId)) return res.status(400).json({ error: "ID inválido" });
 
-  if (requester.id !== userId && requester.rol !== "admin") {
+  const requester = req.user!;
+  if (!hasPermission(requester, userId))
     return res.status(403).json({ error: "Permiso denegado" });
-  }
 
   connection.query(
     "DELETE FROM usuarios WHERE id = ?",
@@ -89,11 +92,10 @@ router.delete("/:id", authenticateToken, (req, res) => {
     (err, results) => {
       if (err) return res.status(500).json({ error: err.message });
 
-      // Hacemos cast a ResultSetHeader para acceder a affectedRows
       const result = results as ResultSetHeader;
-
       if (result.affectedRows === 0)
         return res.status(404).json({ error: "Usuario no encontrado" });
+
       res.json({ message: "Usuario eliminado correctamente" });
     }
   );

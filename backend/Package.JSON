@@ -1,11 +1,11 @@
 {
   "name": "logus-backend",
   "version": "1.0.0",
-  "main": "./Server.js",
+  "main": "./server.js",
   "scripts": {
-    "dev": "ts-node ./Server.ts",
+    "dev": "ts-node ./server.ts",
     "build": "tsc",
-    "start": "node ./Server.js"
+    "start": "node ./server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

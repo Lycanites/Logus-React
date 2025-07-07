@@ -10,7 +10,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // 🌐 Lista de dominios permitidos
-const allowedOrigins = ["http://localhost:3000", "https://logus.site"];
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://logus.site",
+  "https://logus-react.onrender.com",
+];
 
 // ✅ CORS - solo una vez
 app.use(

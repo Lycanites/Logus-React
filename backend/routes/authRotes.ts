@@ -1,25 +1,27 @@
 import express from "express";
-import { loginUser, registerUser } from "../controllers/authController"; // Corrige si tu archivo se llama diferente
+import { loginUser, registerUser } from "../controllers/authController";
 import { validateRegister } from "../middleware/validateRegister";
 import { authenticateUser } from "../middleware/authMiddleware";
 import { authorizeAdmin } from "../middleware/roleMiddleware";
 
 const router = express.Router();
 
-// ✅ Ruta para registro con validación
+// Registro con validación de datos
 router.post("/registro", validateRegister, registerUser);
 
-// ✅ Ruta para login
+// Login
 router.post("/login", loginUser);
 
-// ✅ Ruta de prueba para admin protegida (opcional)
-router.get("/admin-only", authenticateUser, authorizeAdmin, (req, res) => {
-  res.json({ message: "Bienvenido, administrador autorizado." });
+// Ruta para admins (protegida)
+router.get("/admin-only", authenticateUser, authorizeAdmin, (_req, res) => {
+  res.status(200).json({ message: "Bienvenido, administrador autorizado." });
 });
 
-// ✅ Ruta de prueba para cualquier usuario autenticado (opcional)
+// Ruta para usuarios autenticados
 router.get("/perfil", authenticateUser, (req, res) => {
-  res.json({ message: `Bienvenido, ${req.user?.username}` });
+  // Si usas TypeScript, puedes necesitar un cast o una interface para req.user
+  const username = (req as any).user?.username || "Usuario";
+  res.status(200).json({ message: `Bienvenido, ${username}` });
 });
 
 export default router;

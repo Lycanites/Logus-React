@@ -3,19 +3,13 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
+export const db = mysql.createPool({
+  host: process.env.DB_HOST, // ejemplo: "mysql123.hostinger.com"
+  user: process.env.DB_USER, // tu usuario de Hostinger
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: Number(process.env.DB_PORT) || 3306, // asegúrate de incluir el puerto
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
-
-connection.connect((err) => {
-  if (err) {
-    console.error("Error conectando a la base de datos:", err);
-    return;
-  }
-  console.log("Conexión a la base de datos exitosa");
-});
-
-export default connection;
