@@ -2,7 +2,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = process.env.REACT_APP_API_URL_RENDER || "http://localhost:3000";
+const API_URL =
+  process.env.REACT_APP_API_URL_RENDER ||
+  "http://localhost:3000" ||
+  "https://logus-backend.onrender.com";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
